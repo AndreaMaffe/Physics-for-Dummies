@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonController1 : MonoBehaviour
+public class CannonController : MonoBehaviour
 {
     public float angularSpeed = 20f;
     public float cannonPower = 60f;
     public Transform cannonSphere;
-    public Transform shotPoint;
-    public GameObject instanciateObject;
+    public Transform shootingPoint;
+    public GameObject bullet;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             MoveUp();
         }
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             MoveDown();
         }
@@ -26,7 +26,6 @@ public class CannonController1 : MonoBehaviour
         {
             Fire();
         }
-
     }
 
     void MoveUp()
@@ -43,11 +42,10 @@ public class CannonController1 : MonoBehaviour
         //}
     }
 
-    void Fire() {
-        GameObject bulletObject;
-        Rigidbody bulletRb;
-        bulletObject = Instantiate(instanciateObject, shotPoint.position, new Quaternion(0f, 0f, 0f, 0f)) as GameObject;
-        bulletRb = bulletObject.GetComponent<Rigidbody>();
-        bulletRb.AddForce(shotPoint.forward * cannonPower, ForceMode.VelocityChange);
+    void Fire()
+    {
+        GameObject bulletObject = Instantiate(bullet, shootingPoint.position, new Quaternion(0f, 0f, 0f, 0f));
+        Rigidbody bulletRb = bulletObject.GetComponent<Rigidbody>();
+        bulletRb.AddForce(shootingPoint.forward * cannonPower, ForceMode.VelocityChange);
     }
 }

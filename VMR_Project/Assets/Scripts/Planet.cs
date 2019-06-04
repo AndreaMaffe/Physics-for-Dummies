@@ -13,11 +13,12 @@ public class Planet : MonoBehaviour
     //public GameObject sphere;
     //private float originalRedVectorIntensity;
 
-    public Rigidbody otherRb;
+    private Rigidbody otherRb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        otherRb = GameObject.Find("BigPlanet").GetComponent<Rigidbody>();
         //GravityManager.planetsRigidbodies.Add(rb);
 
         // lastFramePosition = transform.position;
