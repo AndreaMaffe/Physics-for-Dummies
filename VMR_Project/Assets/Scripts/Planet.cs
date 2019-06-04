@@ -6,6 +6,7 @@ public class Planet : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector3 lastFramePosition;
+    private GameObject explosion;
 
     //public GameObject blueVector;
     //public GameObject redVector;
@@ -19,9 +20,12 @@ public class Planet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //GravityManager.planetsRigidbodies.Add(rb);
 
-       // lastFramePosition = transform.position;
+        // lastFramePosition = transform.position;
 
         //transform.Find("Trail").GetComponent<TrailRenderer>().startColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+
+        explosion = Resources.Load<GameObject>("PoffAnimation");
+
     }
 
 
@@ -38,10 +42,10 @@ public class Planet : MonoBehaviour
 
                 rb.AddForce(direction.normalized * forceMagnitude, ForceMode.Acceleration);
 
-                //sphere.transform.rotation = Quaternion.LookRotation(otherRb.centerOfMass - this.transform.position);
+                this.transform.rotation = Quaternion.LookRotation(otherRb.transform.position - this.transform.position);
 
-                //vector.transform.localScale = new Vector3(1, 1, 1) * forceMagnitude / initialMagnitude;
-            //}
+        //vector.transform.localScale = new Vector3(1, 1, 1) * forceMagnitude / initialMagnitude;
+        //}
         //}
 
         /*
@@ -53,10 +57,23 @@ public class Planet : MonoBehaviour
 
         lastFramePosition = this.transform.position;
         */
+
+
+        if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
+            Explode();
+
+        //UnityEditor.Handles.DrawDottedLine(transform.position, otherRb.transform.position, 4.0f);
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        Explode();
+    }
+
+    void Explode()
+    {
+        Instantiate(explosion, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

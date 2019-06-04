@@ -6,7 +6,8 @@ public enum SoundType
 {
     Ding,
     Pop,
-    Boom
+    Boom,
+    HardPop
 }
 
 public class AudioManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip ding;
     public AudioClip pop;
     public AudioClip boom;
+    public AudioClip hardPop;
 
     private void Awake()
     {
@@ -40,6 +42,8 @@ public class AudioManager : MonoBehaviour
             case SoundType.Pop: audioSource.PlayOneShot(pop, 1f);
                 break;
             case SoundType.Boom: audioSource.PlayOneShot(boom, 1f);
+                break;
+            case SoundType.HardPop: audioSource.PlayOneShot(hardPop, 1f);
                 break;
         }
     }
