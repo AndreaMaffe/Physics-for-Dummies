@@ -59,10 +59,9 @@ public class Planet : MonoBehaviour
         */
 
 
-        if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
-            Explode();
+        /*if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
+            Explode();*/
 
-        //UnityEditor.Handles.DrawDottedLine(transform.position, otherRb.transform.position, 4.0f);
 
     }
 
