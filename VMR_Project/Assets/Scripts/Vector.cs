@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewArrowScript : MonoBehaviour
+public class Vector : MonoBehaviour
 {
-
     public GameObject trail;
     public GameObject point;
 

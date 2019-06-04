@@ -1,25 +1,26 @@
 fileFormatVersion: 2
-guid: c19ef4daf7724df4593670f88c1b9e80
+guid: f433ed18a038d064692ee7de20cfd609
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: root 1
-    100002: root 2
-    100004: //RootNode
-    400000: root 1
-    400002: root 2
-    400004: //RootNode
-    2100000: Material_76
-    2100002: Material_52
-    2300000: root 1
-    2300002: root 2
-    3300000: root 1
-    3300002: root 2
-    4300000: root
-    4300002: root
+    100000: //RootNode
+    100002: Point
+    100004: Trail
+    100006: TrailPivot
+    400000: //RootNode
+    400002: Point
+    400004: Trail
+    400006: TrailPivot
+    2100000: b0b0b0
+    2300000: Point
+    2300002: Trail
+    3300000: Point
+    3300002: Trail
+    4300000: Trail
+    4300002: Point
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -68,7 +69,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:

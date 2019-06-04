@@ -47,5 +47,7 @@ public class CannonController : MonoBehaviour
         GameObject bulletObject = Instantiate(bullet, shootingPoint.position, new Quaternion(0f, 0f, 0f, 0f));
         Rigidbody bulletRb = bulletObject.GetComponent<Rigidbody>();
         bulletRb.AddForce(shootingPoint.forward * cannonPower, ForceMode.VelocityChange);
+        AudioManager.instance.PlaySound(SoundType.Boom);
+
     }
 }
