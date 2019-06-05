@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1815904805071998673}
   - component: {fileID: 1815904805071998672}
   m_Layer: 0
-  m_Name: SmallPlanet1
+  m_Name: SmallPlanet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
