@@ -18,7 +18,7 @@ public abstract class InteractiveObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && focused)
+        if (Input.GetKeyDown(KeyCode.Space))
             OnClick();
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
