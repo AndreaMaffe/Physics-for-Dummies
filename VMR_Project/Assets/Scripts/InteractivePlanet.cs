@@ -50,6 +50,8 @@ public class InteractivePlanet : InteractiveObject
 
         if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
             Explode();
+
+        //LineDrawer.Instance.DrawDottedLine(this.transform.position, otherRb.transform.position);
     }
 
     void OnCollisionEnter(Collision collision)

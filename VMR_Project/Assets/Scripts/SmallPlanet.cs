@@ -53,7 +53,5 @@ public class SmallPlanet : MonoBehaviour
         redVector.GetComponent<Vector>().SetScale(forceMagnitude / initialForce);
 
         lastFramePosition = this.transform.position;
-
-        
     }
 }
