@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Planet : MonoBehaviour
+public class Planet : InteractibleObject
 {
     private Rigidbody rb;
     private Vector3 lastFramePosition;
+    private Vector3 originalPosition;
     private GameObject explosion;
 
     //public GameObject blueVector;
-    //public GameObject redVector;
+    //public Vector redVector;
     //public GameObject sphere;
     //private float originalRedVectorIntensity;
 
@@ -18,7 +19,10 @@ public class Planet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
         otherRb = GameObject.Find("BigPlanet").GetComponent<Rigidbody>();
+        originalPosition = this.transform.position;
+
         //GravityManager.planetsRigidbodies.Add(rb);
 
         // lastFramePosition = transform.position;
@@ -63,7 +67,6 @@ public class Planet : MonoBehaviour
         /*if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
             Explode();*/
 
-
     }
 
     void OnCollisionEnter(Collision collision)
@@ -74,11 +77,24 @@ public class Planet : MonoBehaviour
     void Explode()
     {
         Instantiate(explosion, this.transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
+        rb.isKinematic = true;
+        this.transform.position = originalPosition;
     }
 
-    private void OnDestroy()
+    protected override void OnClick()
     {
-        //GravityManager.planetsRigidbodies.Remove(rb);
+        rb.isKinematic = true;
+    }
+
+    protected override void OnArrowUp()
+    {
+        this.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        rb.mass += 0.5f;
+    }
+
+    protected override void OnArrowDown()
+    {
+        this.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+        rb.mass -= 0.5f;
     }
 }

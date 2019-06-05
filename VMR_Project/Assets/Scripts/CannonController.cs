@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonController : MonoBehaviour
+public class CannonController : InteractibleObject
 {
     public float angularSpeed = 20f;
     public float cannonPower = 60f;
@@ -10,23 +10,7 @@ public class CannonController : MonoBehaviour
     public Transform shootingPoint;
     public GameObject bullet;
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            MoveUp();
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            MoveDown();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Fire();
-        }
-    }
+    private bool focused;
 
     void MoveUp()
     {
@@ -48,6 +32,22 @@ public class CannonController : MonoBehaviour
         Rigidbody bulletRb = bulletObject.GetComponent<Rigidbody>();
         bulletRb.AddForce(shootingPoint.forward * cannonPower, ForceMode.VelocityChange);
         AudioManager.instance.PlaySound(SoundType.Boom);
-
     }
+
+    protected override void OnClick()
+    {
+        Fire();
+    }
+
+    protected override void OnArrowUp()
+    {
+        MoveUp();
+    }
+
+    protected override void OnArrowDown()
+    {
+        MoveDown();
+    }
+
+
 }
