@@ -18,7 +18,16 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if(other.CompareTag())
-        //other.gameObject.GetComponent<>()
+        if (other.gameObject.GetComponent<Rigidbody>().isKinematic)
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.gameObject.GetComponent<Rigidbody>().isKinematic)
+        {
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            //other.gameObject.GetComponent<>().isKinematic = true;
+        }
     }
 }

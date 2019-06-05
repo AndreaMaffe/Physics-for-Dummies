@@ -534,6 +534,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 8203398221386123282, guid: c2d8c7be11dda8044bce24308c9f68b6,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d8c7be11dda8044bce24308c9f68b6, type: 3}
 --- !u!1 &366296653
@@ -690,13 +695,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437413908}
-  m_LocalRotation: {x: 0.0689423, y: 0.67200774, z: -0.063065566, w: 0.734626}
-  m_LocalPosition: {x: -26.46, y: 15.2, z: 46.91}
+  m_LocalRotation: {x: 0.29910532, y: 0.54021245, z: -0.72491163, w: 0.30530244}
+  m_LocalPosition: {x: 12.5, y: 60.9, z: 30.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 10.723001, y: 84.902, z: 0}
+  m_LocalEulerAnglesHint: {x: 74.983, y: -23.614, z: -152.542}
 --- !u!1 &446931820
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,9 +714,10 @@ GameObject:
   - component: {fileID: 446931823}
   - component: {fileID: 446931822}
   - component: {fileID: 446931821}
+  - component: {fileID: 446931825}
   m_Layer: 0
-  m_Name: CopperPlatform
-  m_TagString: Untagged
+  m_Name: Platform
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,6 +795,18 @@ Transform:
   m_Father: {fileID: 472159526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446931825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446931820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b0b5b4a405b7841a989262b769afe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &454619814
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472159525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 20}
+  m_LocalPosition: {x: -17.320581, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446931824}
@@ -926,7 +944,7 @@ GameObject:
   - component: {fileID: 553588205}
   m_Layer: 0
   m_Name: PaoloBasePlatform
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1453,6 +1471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203398221386123282, guid: c2d8c7be11dda8044bce24308c9f68b6,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4737563326368677448, guid: c2d8c7be11dda8044bce24308c9f68b6,
         type: 3}
@@ -2066,6 +2089,11 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 8203398221386123282, guid: c2d8c7be11dda8044bce24308c9f68b6,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4737563326368677448, guid: c2d8c7be11dda8044bce24308c9f68b6,
         type: 3}
       propertyPath: m_IsActive
@@ -2420,9 +2448,10 @@ GameObject:
   - component: {fileID: 1603405670}
   - component: {fileID: 1603405669}
   - component: {fileID: 1603405668}
+  - component: {fileID: 1603405672}
   m_Layer: 0
-  m_Name: SteelPlatform
-  m_TagString: Untagged
+  m_Name: Platform
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2500,6 +2529,18 @@ Transform:
   m_Father: {fileID: 1842985709}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1603405672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603405667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b0b5b4a405b7841a989262b769afe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820523540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,8 +2643,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842985708}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 20}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.320581, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1603405671}
@@ -2771,9 +2812,10 @@ GameObject:
   - component: {fileID: 2056196925}
   - component: {fileID: 2056196924}
   - component: {fileID: 2056196923}
+  - component: {fileID: 2056196926}
   m_Layer: 0
-  m_Name: IcePlatform
-  m_TagString: Untagged
+  m_Name: Platform
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2851,6 +2893,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056196921}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2056196926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056196921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b0b5b4a405b7841a989262b769afe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2125240315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2866,7 +2920,7 @@ PrefabInstance:
     - target: {fileID: 6305481657379460709, guid: 55745897b708988498c0166fbde3a999,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.551
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: 6305481657379460709, guid: 55745897b708988498c0166fbde3a999,
         type: 3}
@@ -2876,7 +2930,7 @@ PrefabInstance:
     - target: {fileID: 6305481657379460709, guid: 55745897b708988498c0166fbde3a999,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.2
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 6305481657379460709, guid: 55745897b708988498c0166fbde3a999,
         type: 3}

@@ -22,9 +22,4 @@ public class Rotational : MonoBehaviour
             Debug.Log("ciao");
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        a.Activate(other.gameObject.GetComponent<Rigidbody>());
-    }
 }

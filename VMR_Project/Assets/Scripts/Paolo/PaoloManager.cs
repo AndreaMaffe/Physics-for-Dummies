@@ -32,9 +32,9 @@ public class PaoloManager : MonoBehaviour
         iceCube.vel.SetScale(0);
         steelCube.vel.SetScale(0);
         copperCube.vel.SetScale(0);
-        iceCube.weight.SetScale(iceObj.GetComponent<Rigidbody>().mass);
-        steelCube.weight.SetScale(steelObj.GetComponent<Rigidbody>().mass);
-        copperCube.weight.SetScale(copperObj.GetComponent<Rigidbody>().mass);
+        iceCube.weight.SetScale(iceObj.GetComponent<Rigidbody>().mass * Mathf.Sin(Mathf.PI/4));
+        steelCube.weight.SetScale(steelObj.GetComponent<Rigidbody>().mass * Mathf.Sin(Mathf.PI / 4));
+        copperCube.weight.SetScale(copperObj.GetComponent<Rigidbody>().mass * Mathf.Sin(Mathf.PI / 4));
     }
 
     // Update is called once per frame
@@ -51,15 +51,8 @@ public class PaoloManager : MonoBehaviour
      * Instantiation methods
      */
     void CreateDiagObject()
-    {
-        if (iceObj.activeSelf)
-        {
-            Instantiate(iceObj, icePosition, iceRotation);
-        }
-        else
-        {
-            iceObj.SetActive(true);
-        }
+    { 
+        Instantiate(iceObj, icePosition, iceRotation);   
     }
 
     /*
