@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonController : InteractibleObject
+public class CannonController : InteractiveObject
 {
     public float angularSpeed = 20f;
     public float cannonPower = 60f;

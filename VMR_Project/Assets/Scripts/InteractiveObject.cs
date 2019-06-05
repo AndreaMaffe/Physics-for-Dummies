@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class InteractibleObject : MonoBehaviour
+public abstract class InteractiveObject : MonoBehaviour
 {
     private bool focused;
 
@@ -18,13 +18,13 @@ public abstract class InteractibleObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && focused)
+        if (Input.GetKeyDown(KeyCode.Space) && focused)
             OnClick();
 
-        if (Input.GetKey(KeyCode.UpArrow) && focused)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
             OnArrowUp();
 
-        if (Input.GetKey(KeyCode.DownArrow) && focused)
+        if (Input.GetKeyDown(KeyCode.DownArrow))
             OnArrowDown();
     }
 
