@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class applyforce : MonoBehaviour
+public class forza_applicata : MonoBehaviour
 {
 
     private Rigidbody rb;
