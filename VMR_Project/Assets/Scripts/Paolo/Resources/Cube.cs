@@ -33,7 +33,6 @@ public class Cube : MonoBehaviour
         vel.SetScale(this.GetComponent<Rigidbody>().velocity.magnitude);
         weight.SetScale((this.GetComponent<Rigidbody>().mass * Physics.gravity.magnitude) * factorScale);
         tanWeight.SetScale((this.GetComponent<Rigidbody>().mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4)) * factorScale);
-        Debug.Log("Tan Weight force: " + this.GetComponent<Rigidbody>().mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4));
     }
 
     public void SetMass(float mass)

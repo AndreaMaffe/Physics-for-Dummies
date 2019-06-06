@@ -34,9 +34,7 @@ public class InitializeButton : InteractiveObject
             isOn = false;
             meshRenderer.material = offMaterial;
             manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = true;
-        }
-
-        else
+        } else
         {
             isOn = true;
             meshRenderer.material = onMaterial;
