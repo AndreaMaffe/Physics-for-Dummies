@@ -618,7 +618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437413908}
   m_LocalRotation: {x: 0.08172722, y: 0.013463682, z: -0.019872328, w: 0.99636567}
-  m_LocalPosition: {x: 1.91, y: 2.17, z: -1.02}
+  m_LocalPosition: {x: 4.43, y: 2.17, z: -3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -700,6 +700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203398221386123282, guid: c2d8c7be11dda8044bce24308c9f68b6,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d8c7be11dda8044bce24308c9f68b6, type: 3}
@@ -1563,7 +1568,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4622354819400280710, guid: dd3be445a3411e347a20309070832f7f,
+        type: 3}
+      propertyPath: m_Name
+      value: FrictionButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622354819400280707, guid: dd3be445a3411e347a20309070832f7f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad2379270b11a06499ae8a55973c4095, type: 2}
+    m_RemovedComponents:
+    - {fileID: 4622354819400280705, guid: dd3be445a3411e347a20309070832f7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd3be445a3411e347a20309070832f7f, type: 3}
 --- !u!4 &1495505649 stripped
 Transform:
@@ -1724,7 +1740,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 1a5073306d7de5c49b42e8577e99a38d,
+      objectReference: {fileID: 13400000, guid: 825cdeb1ac5893c46888978a60fe3b3b,
         type: 2}
     - target: {fileID: 4391396430178392434, guid: e0b5fc1513d7667478eec9bf66f4b0ad,
         type: 3}
@@ -1889,6 +1905,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1848911703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4622354819400280710, guid: dd3be445a3411e347a20309070832f7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1346349601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1848911705 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1868182583, guid: dd3be445a3411e347a20309070832f7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1346349601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1848911706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848911703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c03ed2532d5ebf4498c95c008f6a3e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowMaterial: {fileID: 2100000, guid: ad2379270b11a06499ae8a55973c4095, type: 2}
+  middleMaterial: {fileID: 2100000, guid: 739e8e4c07c6dfc408c8b3abe8852a1f, type: 2}
+  highMaterial: {fileID: 2100000, guid: b6c3763edda4b404d934958efcb6e402, type: 2}
+  ice: {fileID: 13400000, guid: 825cdeb1ac5893c46888978a60fe3b3b, type: 2}
+  wood: {fileID: 13400000, guid: f4ecb811b7aeef74b9541c5a04655824, type: 2}
+  steel: {fileID: 13400000, guid: 1a5073306d7de5c49b42e8577e99a38d, type: 2}
+  animator: {fileID: 1848911705}
+  manager: {fileID: 318667186}
 --- !u!1001 &1884637533
 PrefabInstance:
   m_ObjectHideFlags: 0
