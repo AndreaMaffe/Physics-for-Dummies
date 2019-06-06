@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
     private Vector3 frictionForce;
-    private double mass;
+    private float mass;
 
     public Vector dyn;
     public Vector weight;
@@ -23,6 +23,11 @@ public class Cube : MonoBehaviour
     void Update()
     {
         DontDestroyOnLoad(this);
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            mass++;
+            rb.mass = mass;
+        }
     }
 
     // Getters and setters for velocity, mass and friction force
@@ -32,7 +37,7 @@ public class Cube : MonoBehaviour
     }
     public Vector3 getVelocity() => rb.velocity;
     public Vector3 getFrictionForce() => this.frictionForce;
-    public void setMass(double mass)
+    public void setMass(float mass)
     {
         this.mass = mass;
     }
