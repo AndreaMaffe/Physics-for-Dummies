@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class InteractiveObject : MonoBehaviour
 {
@@ -20,14 +21,27 @@ public abstract class InteractiveObject : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-            OnClick();
+        if (SceneManager.GetActiveScene().name != "MaffeScene")
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                OnClick();
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            OnArrowUp();
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                OnArrowUp();
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            OnArrowDown();*/
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                OnArrowDown();
+        }
+
+
+        if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
+        {
+            Vector2 coord = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad, OVRInput.Controller.RTrackedRemote);
+
+            if (coord.y > 0)
+                OnArrowUp();
+            else OnArrowDown();
+        }
     }
 
     public abstract void OnClick();

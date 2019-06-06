@@ -81,32 +81,37 @@ public class InteractivePlanet : InteractiveObject
 
     public override void OnArrowUp()
     {
-        scale += 0.2f;
+        if (focused)
+        {
+            scale += 0.2f;
 
-        if (scale > 1.8f)
-            scale = 1.8f;
+            if (scale > 1.8f)
+                scale = 1.8f;
 
-        this.transform.localScale = new Vector3(scale, scale, scale);
+            this.transform.localScale = new Vector3(scale, scale, scale);
 
-        rb.mass += 1f;
-  
-        if (rb.mass > 30f)
-            rb.mass = 30f;
+            rb.mass += 1f;
 
+            if (rb.mass > 30f)
+                rb.mass = 30f;
+        }
     }
 
     public override void OnArrowDown()
     {
-        scale -= 0.2f;
+        if (focused)
+        {
+            scale -= 0.2f;
 
-        if (scale < 0.4f)
-            scale = 0.4f;
+            if (scale < 0.4f)
+                scale = 0.4f;
 
-        this.transform.localScale = new Vector3(scale, scale, scale);
+            this.transform.localScale = new Vector3(scale, scale, scale);
 
-        rb.mass -= 1f;
+            rb.mass -= 1f;
 
-        if (rb.mass < 10f)
-            rb.mass = 10f;
+            if (rb.mass < 10f)
+                rb.mass = 10f;
+        }
     }
 }
