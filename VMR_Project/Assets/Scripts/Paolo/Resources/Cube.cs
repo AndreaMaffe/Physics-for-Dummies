@@ -39,6 +39,7 @@ public class Cube : MonoBehaviour
     {
         rb.mass = mass;
     }
+    public float GetMass() => mass;
 
     // Friction force computation
     public float DynFrictionForceComputation(double dynFrictionCohefficient, float mass, Vector3 velocity) =>
@@ -46,7 +47,6 @@ public class Cube : MonoBehaviour
     public void DynSetScale(float scale)
     {
         dyn.SetScale(scale * factorScale);
-        //Debug.Log("Dynamic friction force: " + scale);
     }
 }
 
