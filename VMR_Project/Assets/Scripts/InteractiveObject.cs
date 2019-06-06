@@ -38,9 +38,10 @@ public abstract class InteractiveObject : MonoBehaviour
         {
             Vector2 coord = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad, OVRInput.Controller.RTrackedRemote);
 
-            if (coord.y > 0)
+            if (coord.y > 0.5f)
                 OnArrowUp();
-            else OnArrowDown();
+            else if (coord.y < -0.5f)
+                OnArrowDown();
         }
     }
 

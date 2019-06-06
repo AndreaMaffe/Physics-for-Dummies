@@ -1101,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 7281411617349808428, guid: dd3d01fee0a65874da8376cd90ada8f6,
         type: 3}
       propertyPath: m_Delegates.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7281411617349808428, guid: dd3d01fee0a65874da8376cd90ada8f6,
         type: 3}

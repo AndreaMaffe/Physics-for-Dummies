@@ -83,7 +83,7 @@ public class InteractivePlanet : InteractiveObject
     {
         if (focused)
         {
-            scale += 0.2f;
+            scale += 0.04f;
 
             if (scale > 1.8f)
                 scale = 1.8f;
@@ -101,7 +101,7 @@ public class InteractivePlanet : InteractiveObject
     {
         if (focused)
         {
-            scale -= 0.2f;
+            scale -= 0.04f;
 
             if (scale < 0.4f)
                 scale = 0.4f;
