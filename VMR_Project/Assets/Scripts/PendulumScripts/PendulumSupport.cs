@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EditPendulumParameters : MonoBehaviour
+public class PendulumSupport : MonoBehaviour
 {
     public float mass;
     public float ropeLength;                                                            // This value gets normalized between 0 and 1.
@@ -13,7 +13,7 @@ public class EditPendulumParameters : MonoBehaviour
 
     // Minimum values mass and rope length can have.
     private float minMass = 0.5f;
-    private float minLength = 0.27f;                                                    // This value corresponds to the y scale of the rope.
+    private float minLength = 0.4f;                                                    // This value corresponds to the y scale of the rope.
 
     // Values added or removed at every user interaction.
     private float deltaMass = 0.5f;
@@ -21,6 +21,10 @@ public class EditPendulumParameters : MonoBehaviour
     
     public GameObject pendulumBody;
     public GameObject rope;
+
+
+    private float linearLimitAdjustmentFactor = 9f;
+    public float limitScale = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +48,16 @@ public class EditPendulumParameters : MonoBehaviour
 
                 // Adjust pendulum body position
                 SoftJointLimit jointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
-                jointLimit.limit += tempScale.y;
-                pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = jointLimit;
+                jointLimit.limit -= (tempScale.y / 7.7f) ;
+
+                limitScale = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
+
+                pendulumBody.GetComponent<ConfigurableJoint>().linearLimit =  jointLimit;
+
+                limitScale -= pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
+
+
+
             }
         }
 
@@ -61,8 +73,13 @@ public class EditPendulumParameters : MonoBehaviour
 
                 // Adjust pendulum body position
                 SoftJointLimit jointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
-                jointLimit.limit -= tempScale.y;
+                jointLimit.limit += (tempScale.y / linearLimitAdjustmentFactor);
+
+                limitScale = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
+
                 pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = jointLimit;
+
+                limitScale -= pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
             }
         }
 

@@ -33,28 +33,35 @@ public class MovableObject : InteractiveObject
         }  
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     {
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
-        if (dragged)
+        if (focused)
         {
-            dragged = false;
-            rb.isKinematic = false;
+            Debug.Log(gameObject.name + "clicked!");
+            if (dragged)
+            {
+                Debug.Log("Released!");
+                dragged = false;
+                rb.isKinematic = false;
+            }
+
+            else
+            {
+                Debug.Log("Dragged!");
+                dragged = true;
+                baseAngle = GetControllerRotationX();
+                rb.isKinematic = true;
+            }
         }
 
-        else
-        {
-            dragged = true;
-            baseAngle = GetControllerRotationX();
-            rb.isKinematic = true;
-        }
     }
 
     private float GetControllerRotationX()

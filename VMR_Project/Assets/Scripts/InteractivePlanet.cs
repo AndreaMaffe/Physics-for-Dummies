@@ -59,7 +59,7 @@ public class InteractivePlanet : InteractiveObject
         Explode();
     }
 
-    void Explode()
+    public void Explode()
     {
         Instantiate(explosion, this.transform.position, Quaternion.identity);
         rb.isKinematic = true;
@@ -67,14 +67,19 @@ public class InteractivePlanet : InteractiveObject
         blueVector.SetActive(false);
     }
 
-    protected override void OnClick()
+    public void StartMoving()
     {
         blueVector.SetActive(true);
         rb.isKinematic = false;
         rb.AddForce(Vector3.up * amount, ForceMode.Impulse);
     }
 
-    protected override void OnArrowUp()
+    public override void OnClick()
+    {
+
+    }
+
+    public override void OnArrowUp()
     {
         scale += 0.2f;
 
@@ -90,7 +95,7 @@ public class InteractivePlanet : InteractiveObject
 
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     {
         scale -= 0.2f;
 
