@@ -18,6 +18,12 @@ public class InitializeButton : InteractiveObject
         isOn = false;
     }
 
+    /*private void FixedUpdate()
+    {
+        if(isOn && manager.getActiveCube().GetComponent<Rigidbody>().isKinematic)
+            manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = false;
+    }*/
+
     public override void OnArrowDown()
     {
     }
@@ -34,6 +40,8 @@ public class InitializeButton : InteractiveObject
         {
             isOn = false;
             meshRenderer.material = offMaterial;
+            manager.getActiveCube().gameObject.SetActive(false);
+            manager.CreateCube();
             manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = true;
         } else
         {

@@ -35,8 +35,6 @@ public class PaoloManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-            CreateCube();
         if(newObj == null)
         {
             dynFrictionForce = cube.DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, cube.GetComponent<Rigidbody>().mass,
@@ -53,7 +51,7 @@ public class PaoloManager : MonoBehaviour
     /*
      * Instantiation methods
      */
-    void CreateCube()
+    public void CreateCube()
     {
         cube.vel.SetScale(0);
         newObj = Instantiate(cubeObj, startPosition, startRotation);
