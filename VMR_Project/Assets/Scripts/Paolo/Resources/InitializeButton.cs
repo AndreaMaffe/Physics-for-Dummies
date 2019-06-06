@@ -18,14 +18,15 @@ public class InitializeButton : InteractiveObject
         isOn = false;
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     {
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
     }
-    protected override void OnClick()
+
+    public override void OnClick()
     {
         animator.SetTrigger("Pressed");
 

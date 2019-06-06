@@ -31,7 +31,7 @@ public class FrictionButton : InteractiveObject
         meshRenderer.material = materials[isOn];
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
         animator.SetTrigger("Pressed");
         
@@ -46,7 +46,7 @@ public class FrictionButton : InteractiveObject
         manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     { 
         animator.SetTrigger("Pressed");
 
@@ -62,7 +62,7 @@ public class FrictionButton : InteractiveObject
         manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
     }
 }
