@@ -13,7 +13,7 @@ public class Trigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DontDestroyOnLoad(this);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,9 +25,6 @@ public class Trigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.gameObject.GetComponent<Rigidbody>().isKinematic)
-        {
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            //other.gameObject.GetComponent<>().isKinematic = true;
-        }
     }
 }

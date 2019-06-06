@@ -22,7 +22,7 @@ public class Cube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DontDestroyOnLoad(this);
     }
 
     // Getters and setters for velocity, mass and friction force
