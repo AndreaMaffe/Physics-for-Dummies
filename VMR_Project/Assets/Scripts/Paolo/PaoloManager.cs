@@ -17,6 +17,7 @@ public class PaoloManager : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
     private float startMass;
+    private float dynFrictionForce;
 
     // Start is called before the first frame update
     void Start()
@@ -34,23 +35,23 @@ public class PaoloManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-            CreateCube();
         if(newObj == null)
         {
-            cube.DynSetScale(cube.DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, cube.GetComponent<Rigidbody>().mass,
-               cube.GetComponent<Rigidbody>().velocity));
+            dynFrictionForce = cube.DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, cube.GetComponent<Rigidbody>().mass,
+               cube.GetComponent<Rigidbody>().velocity);
+            cube.DynSetScale(dynFrictionForce);
         } else
         {
-            newObj.GetComponent<Cube>().DynSetScale(newObj.GetComponent<Cube>().DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, newObj.GetComponent<Cube>().GetComponent<Rigidbody>().mass,
-               newObj.GetComponent<Cube>().GetComponent<Rigidbody>().velocity));
+            dynFrictionForce = newObj.GetComponent<Cube>().DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, newObj.GetComponent<Cube>().GetComponent<Rigidbody>().mass,
+               newObj.GetComponent<Cube>().GetComponent<Rigidbody>().velocity);
+            newObj.GetComponent<Cube>().DynSetScale(dynFrictionForce);
         }
            
     }
     /*
      * Instantiation methods
      */
-    void CreateCube()
+    public void CreateCube()
     {
         cube.vel.SetScale(0);
         newObj = Instantiate(cubeObj, startPosition, startRotation);
@@ -68,4 +69,5 @@ public class PaoloManager : MonoBehaviour
             return cube;
         }
     }
+    public float getFrictionForce() => dynFrictionForce;
 }

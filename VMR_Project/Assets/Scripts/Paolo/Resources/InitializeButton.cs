@@ -18,14 +18,21 @@ public class InitializeButton : InteractiveObject
         isOn = false;
     }
 
-    protected override void OnArrowDown()
+    /*private void FixedUpdate()
+    {
+        if(isOn && manager.getActiveCube().GetComponent<Rigidbody>().isKinematic)
+            manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = false;
+    }*/
+
+    public override void OnArrowDown()
     {
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
     }
-    protected override void OnClick()
+
+    public override void OnClick()
     {
         animator.SetTrigger("Pressed");
 
@@ -33,6 +40,8 @@ public class InitializeButton : InteractiveObject
         {
             isOn = false;
             meshRenderer.material = offMaterial;
+            manager.getActiveCube().gameObject.SetActive(false);
+            manager.CreateCube();
             manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = true;
         } else
         {

@@ -8,6 +8,8 @@ public class StartButton : InteractiveObject
     public Material onMaterial;
     public Animator animator;
 
+    public InteractivePlanet planet;
+
     private bool isOn;
     private MeshRenderer meshRenderer;
 
@@ -18,28 +20,36 @@ public class StartButton : InteractiveObject
         isOn = false;
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     {
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
-        animator.SetTrigger("Pressed");
-
-        if (isOn)
+        if (focused)
         {
-            isOn = false;
-            meshRenderer.material = offMaterial;
-        }
+            animator.SetTrigger("Pressed");
+            AudioManager.instance.PlaySound(SoundType.Pop);
 
-        else
-        {
-            isOn = true;
-            meshRenderer.material = onMaterial;
+            if (isOn)
+            {
+                isOn = false;
+                meshRenderer.material = offMaterial;
+                planet.Explode();
+                Debug.Log("Off");
+            }
+
+            else
+            {
+                Debug.Log("On");
+                isOn = true;
+                meshRenderer.material = onMaterial;
+                planet.StartMoving();
+            }
         }
     }
 

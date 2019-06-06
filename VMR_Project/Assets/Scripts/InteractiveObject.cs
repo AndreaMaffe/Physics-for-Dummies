@@ -4,31 +4,33 @@ using UnityEngine;
 
 public abstract class InteractiveObject : MonoBehaviour
 {
-    private bool focused;
+    protected bool focused;
 
     public void OnFocusEnter()
     {
+        Debug.Log(gameObject.name + "focused!");
         focused = true;
     }
 
     public void OnFocusExit()
     {
+        Debug.Log(gameObject.name + "stop focused!");
         focused = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
             OnClick();
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
             OnArrowUp();
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
-            OnArrowDown();
+            OnArrowDown();*/
     }
 
-    protected abstract void OnClick();
-    protected abstract void OnArrowUp();
-    protected abstract void OnArrowDown();
+    public abstract void OnClick();
+    public abstract void OnArrowUp();
+    public abstract void OnArrowDown();
 }

@@ -13,8 +13,8 @@ public class FrictionButton : InteractiveObject
     public Animator animator;
     public PaoloManager manager;
 
-    private PhysicMaterial[] physicMaterials = new PhysicMaterial[3];
-    private Material[] materials = new Material[3];
+    private readonly PhysicMaterial[] physicMaterials = new PhysicMaterial[3];
+    private readonly Material[] materials = new Material[3];
     private int isOn;
     private MeshRenderer meshRenderer;
     // Start is called before the first frame update
@@ -31,7 +31,7 @@ public class FrictionButton : InteractiveObject
         meshRenderer.material = materials[isOn];
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
         animator.SetTrigger("Pressed");
         
@@ -46,7 +46,7 @@ public class FrictionButton : InteractiveObject
         manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     { 
         animator.SetTrigger("Pressed");
 
@@ -62,7 +62,7 @@ public class FrictionButton : InteractiveObject
         manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
     }
 }
