@@ -43,7 +43,7 @@ public class Cube : MonoBehaviour
 
     // Friction force computation
     public float DynFrictionForceComputation(double dynFrictionCohefficient, float mass, Vector3 velocity) =>
-        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Cos(Mathf.PI / 4) * velocity / velocity.magnitude).magnitude;
+        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4) * velocity / velocity.magnitude).magnitude;
     public void DynSetScale(float scale)
     {
         dyn.SetScale(scale * factorScale);
