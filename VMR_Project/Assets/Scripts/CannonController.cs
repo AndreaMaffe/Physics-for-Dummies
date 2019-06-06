@@ -34,17 +34,17 @@ public class CannonController : InteractiveObject
         AudioManager.instance.PlaySound(SoundType.Boom);
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
         Fire();
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
         MoveUp();
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     {
         MoveDown();
     }
