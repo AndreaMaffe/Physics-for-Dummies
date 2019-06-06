@@ -14,7 +14,7 @@ using UnityEngine;
      
 --------------------------------------------------------------------------------------------------*/
 
-public class C : MonoBehaviour
+public class C : InteractiveObject
 {
     public float angularSpeed = 20f;
     public float cannonPower = 60f;
@@ -22,24 +22,6 @@ public class C : MonoBehaviour
     public Transform cannonSphere;
     public Transform shootingPoint;
     public GameObject bullet;
-
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            MoveUp();
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            MoveDown();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Fire();
-        }
-    }
 
     void MoveUp()
     {
@@ -62,5 +44,20 @@ public class C : MonoBehaviour
         bulletRb.AddForce(shootingPoint.forward * cannonPower, ForceMode.VelocityChange);
         AudioManager.instance.PlaySound(SoundType.Boom);
 
+    }
+
+    public override void OnClick()
+    {
+        Fire();
+    }
+
+    public override void OnArrowUp()
+    {
+        MoveUp();
+    }
+
+    public override void OnArrowDown()
+    {
+        MoveDown();
     }
 }

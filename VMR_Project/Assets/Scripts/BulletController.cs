@@ -51,6 +51,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             GetComponent<Rigidbody>().isKinematic = true;
+            AudioManager.instance.PlaySound(SoundType.Boom);
             bullet.SetActive(false);
             velocity.SetActive(false);
             velocityX.SetActive(false);
