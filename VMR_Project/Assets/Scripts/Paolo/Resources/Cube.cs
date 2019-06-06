@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private Vector3 frictionForce;
     private float mass;
+    private float factorScale;
 
     public Vector dyn;
     public Vector weight;
     public Vector vel;
+    public Vector tanWeight;
 
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Cube : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mass = rb.mass;
+        factorScale = (float)0.2;
     }
 
     // Update is called once per frame
@@ -28,17 +30,24 @@ public class Cube : MonoBehaviour
             mass++;
             rb.mass = mass;
         }
+        vel.SetScale(this.GetComponent<Rigidbody>().velocity.magnitude);
+        weight.SetScale((this.GetComponent<Rigidbody>().mass * Physics.gravity.magnitude) * factorScale);
+        tanWeight.SetScale((this.GetComponent<Rigidbody>().mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4)) * factorScale);
+        Debug.Log("Tan Weight force: " + this.GetComponent<Rigidbody>().mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4));
     }
 
-    // Getters and setters for velocity, mass and friction force
-    public void setFrictionForce(Vector3 frictionForce)
+    public void SetMass(float mass)
     {
-        this.frictionForce = frictionForce;
+        rb.mass = mass;
     }
-    public Vector3 getVelocity() => rb.velocity;
-    public Vector3 getFrictionForce() => this.frictionForce;
-    public void setMass(float mass)
+
+    // Friction force computation
+    public float DynFrictionForceComputation(double dynFrictionCohefficient, float mass, Vector3 velocity) =>
+        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Cos(Mathf.PI / 4) * velocity / velocity.magnitude).magnitude;
+    public void DynSetScale(float scale)
     {
-        this.mass = mass;
+        dyn.SetScale(scale * factorScale);
+        //Debug.Log("Dynamic friction force: " + scale);
     }
 }
+
