@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ramp : MonoBehaviour
 {
+    public Incline incline;
     // Start is called before the first frame update
     void Start()
     {

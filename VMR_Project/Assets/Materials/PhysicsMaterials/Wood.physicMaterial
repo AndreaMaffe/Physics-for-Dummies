@@ -6,7 +6,7 @@ PhysicMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Copper
+  m_Name: Wood
   dynamicFriction: 0.18
   staticFriction: 0.36
   bounciness: 0
