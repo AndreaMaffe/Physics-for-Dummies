@@ -20,10 +20,10 @@ public class LucaManager : InteractiveObject
         SetData();
     }
 
-    protected override void OnArrowDown() {}
-    protected override void OnArrowUp() {}
+    public override void OnArrowDown() {}
+    public override void OnArrowUp() {}
 
-    protected override void OnClick()
+    public override void OnClick()
     {
         SetData();
 

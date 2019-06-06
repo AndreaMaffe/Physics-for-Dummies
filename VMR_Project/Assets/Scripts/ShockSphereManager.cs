@@ -17,7 +17,7 @@ public class ShockSphereManager : InteractiveObject
         transform.rotation = Quaternion.LookRotation(direction);
     }
 
-    protected override void OnArrowDown()
+    public override void OnArrowDown()
     {
 
         scale -= 0.2f;
@@ -34,7 +34,7 @@ public class ShockSphereManager : InteractiveObject
 
     }
 
-    protected override void OnArrowUp()
+    public override void OnArrowUp()
     {
         scale += 0.2f;
 
@@ -49,7 +49,7 @@ public class ShockSphereManager : InteractiveObject
             rb.mass = 30f;
     }
 
-    protected override void OnClick()
+    public override void OnClick()
     {
         rb.AddForce(transform.forward * amount, ForceMode.VelocityChange);
     }
