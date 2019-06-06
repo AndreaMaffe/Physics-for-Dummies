@@ -21,5 +21,9 @@ public class VelocityIndicator : MonoBehaviour
         vector_script.SetScale(rb.velocity.magnitude * 0.2f);
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.instance.PlaySound(SoundType.Pop);
+    }
 
 }
