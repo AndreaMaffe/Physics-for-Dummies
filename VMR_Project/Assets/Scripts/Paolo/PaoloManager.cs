@@ -17,6 +17,7 @@ public class PaoloManager : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
     private float startMass;
+    private Vector3 startScale;
     private float dynFrictionForce;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class PaoloManager : MonoBehaviour
         cubeObj = cube.gameObject;
         startRotation = cubeObj.transform.rotation;
         startPosition = cubeObj.transform.position;
+        startScale = cube.transform.localScale;
         startMass = cube.GetComponent<Rigidbody>().mass;
         cube.dyn.SetScale(0);
         cube.vel.SetScale(0);
@@ -39,26 +41,32 @@ public class PaoloManager : MonoBehaviour
         {
             dynFrictionForce = cube.DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, cube.GetComponent<Rigidbody>().mass,
                cube.GetComponent<Rigidbody>().velocity);
-            cube.DynSetScale(dynFrictionForce);
+            if (dynFrictionForce > 0)
+                cube.DynSetScale(dynFrictionForce);
         } else
         {
             dynFrictionForce = newObj.GetComponent<Cube>().DynFrictionForceComputation(ramp.incline.GetComponent<BoxCollider>().material.dynamicFriction, newObj.GetComponent<Cube>().GetComponent<Rigidbody>().mass,
                newObj.GetComponent<Cube>().GetComponent<Rigidbody>().velocity);
-            newObj.GetComponent<Cube>().DynSetScale(dynFrictionForce);
+            if (dynFrictionForce > 0)
+                newObj.GetComponent<Cube>().DynSetScale(dynFrictionForce);
         }
            
     }
     /*
-     * Instantiation methods
+     * Instantiation method
      */
     public void CreateCube()
     {
         cube.vel.SetScale(0);
-        newObj = Instantiate(cubeObj, startPosition, startRotation);
+        newObj = Instantiate(cubeObj, startPosition, startRotation, ramp.GetIncline().transform);
         newObj.SetActive(true);
         newObj.GetComponent<Cube>().GetComponent<Rigidbody>().mass = startMass;
+        newObj.transform.localScale = startScale;
     }
 
+    /*
+     * Generic support methods
+     */
     public Cube getActiveCube()
     {
         if(newObj)
