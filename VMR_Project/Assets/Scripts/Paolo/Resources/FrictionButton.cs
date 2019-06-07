@@ -11,7 +11,7 @@ public class FrictionButton : InteractiveObject
     public PhysicMaterial wood;
     public PhysicMaterial steel;
     public Animator animator;
-    public PaoloManager manager;
+    public Incline incline;
 
     private readonly PhysicMaterial[] physicMaterials = new PhysicMaterial[3];
     private readonly Material[] materials = new Material[3];
@@ -43,7 +43,7 @@ public class FrictionButton : InteractiveObject
             isOn++;
         }
         meshRenderer.material = materials[isOn];
-        manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
     }
 
     public override void OnArrowDown()
@@ -59,7 +59,7 @@ public class FrictionButton : InteractiveObject
             isOn--;
         }
         meshRenderer.material = materials[isOn];
-        manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
     }
 
     public override void OnClick()

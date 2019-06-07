@@ -8,28 +8,20 @@ public class InitializeButton : InteractiveObject
     public Material onMaterial;
     public Animator animator;
     public Cube cube;
-    public PaoloManager manager;
     public Incline incline;
 
     private bool isOn;
     private MeshRenderer meshRenderer;
-    private Quaternion originalRotation;
     // Start is called before the first frame update
     void Start()
-    {
-        originalRotation = incline.GetOriginalRotation();
+    { 
         meshRenderer = GetComponent<MeshRenderer>();
         isOn = false;
     }
 
-    /*private void FixedUpdate()
-    {
-        if(isOn && manager.getActiveCube().GetComponent<Rigidbody>().isKinematic)
-            manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = false;
-    }*/
-
     public override void OnArrowDown()
     {
+
     }
 
     public override void OnArrowUp()
