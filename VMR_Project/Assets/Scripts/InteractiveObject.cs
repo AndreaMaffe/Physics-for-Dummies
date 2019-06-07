@@ -24,6 +24,9 @@ public abstract class InteractiveObject : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && SceneManager.GetActiveScene().name != "MaffeScene")
                 OnClick();
 
+            if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                OnClick();
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 OnArrowUp();
 
