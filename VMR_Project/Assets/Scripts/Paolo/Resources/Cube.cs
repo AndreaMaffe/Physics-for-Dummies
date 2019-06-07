@@ -25,9 +25,7 @@ public class Cube : MonoBehaviour
         startMass = rb.mass;
         factorScale = (float)0.02;
         startPosition = this.transform.localPosition;
-        Debug.Log("Start Position: " + startPosition);
         startRotation = this.transform.localRotation;
-        Debug.Log("Start Rotation: " + startRotation);
         startScale = this.transform.localScale;
 
         this.dyn.SetScale(0);

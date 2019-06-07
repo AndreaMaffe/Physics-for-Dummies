@@ -11,6 +11,7 @@ public class FrictionBar : MonoBehaviour
 
     private float maxBarSize;
     private float actualSize;
+    private float sizeToIncrement;
     private Material[] materials = new Material[3];
     private int index;
     private MeshRenderer meshRenderer;
@@ -21,6 +22,7 @@ public class FrictionBar : MonoBehaviour
         meshRenderer = frictionBar.GetComponentInChildren<MeshRenderer>();
         maxBarSize = frictionBar.transform.localScale.x;
         actualSize = maxBarSize / 3;
+        sizeToIncrement = maxBarSize / 3;
         materials[0] = ice;
         materials[1] = wood;
         materials[2] = steel;
@@ -38,28 +40,28 @@ public class FrictionBar : MonoBehaviour
     {
         if (increase)
         {
-            if (actualSize == maxBarSize)
+            if (index == 2)
             {
                 index = 0;
-                actualSize = maxBarSize / 3;
+                actualSize = sizeToIncrement;
             }
             else
             {
                 index++;
-                actualSize += maxBarSize / 3;
+                actualSize += sizeToIncrement;
             }       
         }
         if (decrease)
         {
-            if (actualSize == maxBarSize / 3)
-            {
-                index = 3;
+            if (index == 0)
+            { 
+                index = 2;
                 actualSize = maxBarSize;
             }
             else
             {
                 index--;
-                actualSize -= maxBarSize / 3;
+                actualSize -= sizeToIncrement;
             }
         }
         meshRenderer.material = materials[index];

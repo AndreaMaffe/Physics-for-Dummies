@@ -26,8 +26,9 @@ public class FrictionButton : InteractiveObject
     public override void OnArrowUp()
     {
         animator.SetTrigger("Pressed");
-        
-        if(isOn == 2)
+        AudioManager.instance.PlaySound(SoundType.Pop);
+
+        if (isOn == 2)
         {
             isOn = 0;
         } else
@@ -42,6 +43,7 @@ public class FrictionButton : InteractiveObject
     public override void OnArrowDown()
     { 
         animator.SetTrigger("Pressed");
+        AudioManager.instance.PlaySound(SoundType.Pop);
 
         if (isOn == 0)
         {

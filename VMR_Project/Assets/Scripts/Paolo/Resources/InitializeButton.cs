@@ -31,6 +31,7 @@ public class InitializeButton : InteractiveObject
     public override void OnClick()
     {
         animator.SetTrigger("Pressed");
+        AudioManager.instance.PlaySound(SoundType.Pop);
 
         if (isOn)
         {

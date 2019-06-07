@@ -1593,9 +1593,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionBar: {fileID: 827658383}
-  ice: {fileID: 2100000, guid: ad2379270b11a06499ae8a55973c4095, type: 2}
-  wood: {fileID: 2100000, guid: aed82605242b91944bb003cd271f3e40, type: 2}
-  steel: {fileID: 2100000, guid: b6c3763edda4b404d934958efcb6e402, type: 2}
+  ice: {fileID: 2100000, guid: 071fceec1f6cdd143952cb827ac96030, type: 2}
+  wood: {fileID: 2100000, guid: d2a1729eb9d35a44f89666bae4218c29, type: 2}
+  steel: {fileID: 2100000, guid: 6fab5462b8fe798488b338fd4c433919, type: 2}
 --- !u!4 &1432446487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5336bc7573f7d3541b41b3a8d0b7b900,
