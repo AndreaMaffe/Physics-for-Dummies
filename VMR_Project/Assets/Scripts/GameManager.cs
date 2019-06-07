@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             case GameStatus.OnTitleScreen:
                 {
-                    if (OVRInput.Get(OVRInput.Button.Any) || Input.GetKeyDown(KeyCode.Space))
+                    if (OVRInput.Get(OVRInput.Button.Any) || Input.GetKeyDown(KeyCode.N))
                     {
                         StartCoroutine(GoToMainMenu());
                     }

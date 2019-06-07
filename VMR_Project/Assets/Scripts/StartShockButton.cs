@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StartShockButton : InteractiveObject
 {
-
     public Material offMaterial;
     public Material onMaterial;
     public Animator animator;
@@ -30,9 +29,8 @@ public class StartShockButton : InteractiveObject
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            OnClick();
-            
+        if (Input.GetKeyDown(KeyCode.Space))
+            OnClick(); 
     }
 
     public override void OnClick()

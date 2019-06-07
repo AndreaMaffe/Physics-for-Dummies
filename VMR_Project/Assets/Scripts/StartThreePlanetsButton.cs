@@ -16,7 +16,6 @@ public class StartThreePlanetsButton : InteractiveObject
 
     void Start()
     {
-
         meshRenderer = GetComponent<MeshRenderer>();
         isOn = false;
     }
