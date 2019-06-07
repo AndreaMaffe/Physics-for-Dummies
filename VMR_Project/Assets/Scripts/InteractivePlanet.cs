@@ -12,6 +12,7 @@ public class InteractivePlanet : InteractiveObject
 
     private float scale;
 
+    public GameObject scalableButton;
     public GameObject blueVector;
     public GameObject planet;
     public StartPlanetButton startButton;
@@ -67,11 +68,13 @@ public class InteractivePlanet : InteractiveObject
         this.transform.rotation = Quaternion.identity;
         trailRenderer.Clear();        
         rb.isKinematic = true;
+        scalableButton.SetActive(true);
         blueVector.SetActive(false);
     }
 
     public void StartMoving()
     {
+        scalableButton.SetActive(false);
         blueVector.SetActive(true);
         rb.isKinematic = false;
         rb.AddForce(Vector3.up * amount, ForceMode.Impulse);
