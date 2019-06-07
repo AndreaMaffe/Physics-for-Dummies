@@ -44,10 +44,21 @@ public class Cube : MonoBehaviour
 
         dynFrictionForce = this.DynFrictionForceComputation(incline.GetComponent<BoxCollider>().material.dynamicFriction, rb.mass, rb.velocity);
         if (dynFrictionForce > 0)
+        {
             this.DynSetScale(dynFrictionForce);
+        } else
+        {
+            dyn.SetScale(0);
+        }
 
         if (rb.velocity.magnitude > 0)
+        {
             vel.SetScale(rb.velocity.magnitude * (factorScale * 5));
+        } else
+        {
+            vel.SetScale(0);
+        }
+            
         weight.SetScale((rb.mass * Physics.gravity.magnitude) * factorScale);
         tanWeight.SetScale((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
     }
