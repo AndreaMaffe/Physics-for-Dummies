@@ -6,10 +6,12 @@ public class PendulumSupport : MonoBehaviour
 {
     public float mass;
     public float ropeLength;                                                            // This value gets normalized between 0 and 1.
+    private float initialMass;
+    private float initialRopeLength;
 
     // Maximum values mass and rope length can have.
     private float maxMass = 1.25f;
-    private float maxLength = 1.27f;                                                    // This value corresponds to the maximum y scale of the rope.
+    private float maxLength = 1.2f;                                                    // This value corresponds to the maximum y scale of the rope.
 
     // Minimum values mass and rope length can have.
     private float minMass = 1f;
@@ -26,8 +28,9 @@ public class PendulumSupport : MonoBehaviour
     private Vector3 initialPendulumBodyPosition;
     private Vector3 initialPendulumBodyScale;
     private SoftJointLimit initialJointLimit;
+    private float pendulumSupportScale;
 
-    // GameObjects whose parameter are needed.
+    // GameObjects whose parameters are needed.
     public GameObject pendulumSupport;
     public GameObject pendulumBody;
     public GameObject rope;
@@ -40,7 +43,7 @@ public class PendulumSupport : MonoBehaviour
     private bool isPendulumReset = true;
 
     // This value modifies the value of the torque applied to the rope when the pendulum movement is started.
-    private float torqueAmount = 100f;
+    private float appliedForceAmount = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -54,13 +57,15 @@ public class PendulumSupport : MonoBehaviour
         initialJointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
 
         mass = pendulumBody.GetComponent<Rigidbody>().mass;
+        initialMass = mass;
         ropeLength = Normalize(rope.transform.localScale.y, maxLength, minLength);
+        initialRopeLength = ropeLength;
+        pendulumSupportScale = pendulumSupport.transform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         // w -> reduce rope length.
         if (isPendulumReset)
         {
@@ -74,12 +79,12 @@ public class PendulumSupport : MonoBehaviour
                     ropeLength = Normalize(rope.transform.localScale.y, maxLength, minLength);
 
                     // Adjust pendulum body position
-                    Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y + deltaLength * pendulumSupport.transform.localScale.x, 
+                    Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y + deltaLength * pendulumSupportScale, 
                         pendulumBody.transform.position.z);
                     pendulumBody.transform.position = newPosition;
 
                     SoftJointLimit jointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
-                    jointLimit.limit -= (tempScale.y * pendulumSupport.transform.localScale.x / linearLimitAdjustmentFactor2);
+                    jointLimit.limit -= (tempScale.y * pendulumSupportScale / linearLimitAdjustmentFactor2);
 
                     //limitScale = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
 
@@ -100,12 +105,12 @@ public class PendulumSupport : MonoBehaviour
                     ropeLength = Normalize(rope.transform.localScale.y, maxLength, minLength);
 
                     // Adjust pendulum body position
-                    Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y - deltaLength * pendulumSupport.transform.localScale.x,
+                    Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y - deltaLength * pendulumSupportScale,
                         pendulumBody.transform.position.z);
                     pendulumBody.transform.position = newPosition;
 
                     SoftJointLimit jointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
-                    jointLimit.limit += (tempScale.y * pendulumSupport.transform.localScale.x / linearLimitAdjustmentFactor1);
+                    jointLimit.limit += (tempScale.y * pendulumSupportScale / linearLimitAdjustmentFactor1);
 
                     //limitScale = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
 
@@ -124,7 +129,7 @@ public class PendulumSupport : MonoBehaviour
                     pendulumBody.GetComponent<Rigidbody>().mass = mass;
 
                     // Increase the pendulum's scale.
-                    Vector3 newScale = pendulumBody.transform.localScale + new Vector3(0.015f, 0.015f, 0.015f);
+                    Vector3 newScale = pendulumBody.transform.localScale + new Vector3(0.03f, 0.03f, 0.03f);
                     pendulumBody.transform.localScale = newScale;
                 }
             }
@@ -138,7 +143,7 @@ public class PendulumSupport : MonoBehaviour
                     pendulumBody.GetComponent<Rigidbody>().mass = mass;
 
                     // Descrease the pendulum's scale.
-                    Vector3 newScale = pendulumBody.transform.localScale - new Vector3(0.015f, 0.015f, 0.015f);
+                    Vector3 newScale = pendulumBody.transform.localScale - new Vector3(0.03f, 0.03f, 0.03f);
                     pendulumBody.transform.localScale = newScale;
                 }
             }
@@ -187,11 +192,11 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.transform.rotation = initialPendulumBodyRotation;
         pendulumBody.transform.localScale = initialPendulumBodyScale;
         pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = initialJointLimit;
-        mass = minMass;
+        mass = initialMass;
 
         rope.transform.rotation = initialRopeRotation;
         rope.transform.localScale = initialRopeScale;
-        ropeLength = minLength;
+        ropeLength = initialRopeLength;
 
         isPendulumReset = true;
     }
@@ -206,6 +211,6 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.GetComponent<Rigidbody>().isKinematic = false;
         rope.GetComponent<Rigidbody>().isKinematic = false;
 
-        rope.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, 1 * torqueAmount), ForceMode.VelocityChange);
+        pendulumBody.GetComponent<Rigidbody>().AddForce(Vector3.right * appliedForceAmount, ForceMode.VelocityChange);
     }
 }
