@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SoundTrigger : MonoBehaviour
 {
-    public GameObject pendulumBody;
+    public GameObject pendulumBodyCentre;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == pendulumBody)
+        if(other.gameObject == pendulumBodyCentre)
         {
             AudioManager.instance.PlaySound(SoundType.Ding);
         }
