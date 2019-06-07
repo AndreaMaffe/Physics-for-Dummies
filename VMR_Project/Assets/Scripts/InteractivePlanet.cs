@@ -8,11 +8,14 @@ public class InteractivePlanet : InteractiveObject
     private Vector3 lastFramePosition;
     private Vector3 originalPosition;
     private GameObject explosion;
+    private TrailRenderer trailRenderer;
 
     private float scale;
 
+    public GameObject scalableButton;
     public GameObject blueVector;
-
+    public GameObject planet;
+    public StartPlanetButton startButton;
     public Rigidbody otherRb;
     public float amount;
 
@@ -24,6 +27,7 @@ public class InteractivePlanet : InteractiveObject
         lastFramePosition = transform.position;
 
         explosion = Resources.Load<GameObject>("PoffAnimation");
+        trailRenderer = planet.transform.Find("Trail").GetComponent<TrailRenderer>();
         scale = 1f;
         blueVector.gameObject.SetActive(false);
     }
@@ -48,27 +52,29 @@ public class InteractivePlanet : InteractiveObject
 
         lastFramePosition = this.transform.position;
 
-        if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
-            Explode();
-
         //LineDrawer.Instance.DrawDottedLine(this.transform.position, otherRb.transform.position);
     }
 
     void OnCollisionEnter(Collision collision)
     {
         Explode();
+        startButton.OnPlanetCollision();
     }
 
     public void Explode()
     {
         Instantiate(explosion, this.transform.position, Quaternion.identity);
-        rb.isKinematic = true;
         this.transform.position = originalPosition;
+        this.transform.rotation = Quaternion.identity;
+        trailRenderer.Clear();        
+        rb.isKinematic = true;
+        scalableButton.SetActive(true);
         blueVector.SetActive(false);
     }
 
     public void StartMoving()
     {
+        scalableButton.SetActive(false);
         blueVector.SetActive(true);
         rb.isKinematic = false;
         rb.AddForce(Vector3.up * amount, ForceMode.Impulse);
@@ -83,7 +89,7 @@ public class InteractivePlanet : InteractiveObject
     {
         if (focused)
         {
-            scale += 0.2f;
+            scale += 0.04f;
 
             if (scale > 1.8f)
                 scale = 1.8f;
@@ -101,7 +107,7 @@ public class InteractivePlanet : InteractiveObject
     {
         if (focused)
         {
-            scale -= 0.2f;
+            scale -= 0.04f;
 
             if (scale < 0.4f)
                 scale = 0.4f;

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartButton : InteractiveObject
+public class StartThreePlanetsButton : InteractiveObject
 {
     public Material offMaterial;
     public Material onMaterial;
     public Animator animator;
 
-    public InteractivePlanet planet;
+    public SmallPlanet planet1, planet2, planet3;
 
     private bool isOn;
     private MeshRenderer meshRenderer;
@@ -16,6 +16,7 @@ public class StartButton : InteractiveObject
 
     void Start()
     {
+
         meshRenderer = GetComponent<MeshRenderer>();
         isOn = false;
     }
@@ -39,19 +40,25 @@ public class StartButton : InteractiveObject
             {
                 isOn = false;
                 meshRenderer.material = offMaterial;
-                planet.Explode();
-                Debug.Log("Off");
+                planet1.ResetPosition();
+                planet2.ResetPosition();
+                planet3.ResetPosition();
             }
 
             else
             {
-                Debug.Log("On");
                 isOn = true;
                 meshRenderer.material = onMaterial;
-                planet.StartMoving();
+                planet1.ApplyForce();
+                planet2.ApplyForce();
+                planet3.ApplyForce();
             }
         }
     }
 
-
+    public void OnPlanetCollision()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
+    }
 }

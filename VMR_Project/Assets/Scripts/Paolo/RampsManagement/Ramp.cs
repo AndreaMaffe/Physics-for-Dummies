@@ -17,4 +17,5 @@ public class Ramp : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public Incline GetIncline() => this.incline;
 }

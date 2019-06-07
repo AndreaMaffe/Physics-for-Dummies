@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class SmallPlanet : MonoBehaviour
 {
+    private TrailRenderer trailRenderer;
+
     private Rigidbody rb;
     private Vector3 lastFramePosition;
     private float initialForce;
+    private Vector3 originalPosition;
 
     public GameObject planet;
     public GameObject redVector;
@@ -18,10 +21,12 @@ public class SmallPlanet : MonoBehaviour
 
     void Start()
     {
+        trailRenderer = transform.Find("Planet").Find("Trail").GetComponent<TrailRenderer>();
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
 
-        lastFramePosition = transform.position;
-
+        lastFramePosition = this.transform.position;
+        originalPosition = this.transform.position;
 
         float initialDistance = (otherRb.transform.position - rb.transform.position).magnitude;
         initialForce = (rb.mass * otherRb.mass) / (initialDistance * initialDistance);
@@ -53,5 +58,20 @@ public class SmallPlanet : MonoBehaviour
         redVector.GetComponent<Vector>().SetScale(forceMagnitude / initialForce);
 
         lastFramePosition = this.transform.position;
+    }
+
+    public void ResetPosition()
+    {
+        rb.isKinematic = true;
+        this.transform.position = originalPosition;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        trailRenderer.Clear();
+    }
+
+    public void ApplyForce()
+    {
+        rb.isKinematic = false;
+        rb.AddForce(Vector3.up * 400, ForceMode.Impulse);
     }
 }

@@ -7,13 +7,13 @@ public abstract class InteractiveObject : MonoBehaviour
 {
     protected bool focused;
 
-    public void OnFocusEnter()
+    public virtual void OnFocusEnter()
     {
         Debug.Log(gameObject.name + "focused!");
         focused = true;
     }
 
-    public void OnFocusExit()
+    public virtual void OnFocusExit()
     {
         Debug.Log(gameObject.name + "stop focused!");
         focused = false;
@@ -38,9 +38,10 @@ public abstract class InteractiveObject : MonoBehaviour
         {
             Vector2 coord = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad, OVRInput.Controller.RTrackedRemote);
 
-            if (coord.y > 0)
+            if (coord.y > 0.3f)
                 OnArrowUp();
-            else OnArrowDown();
+            else if (coord.y < -0.3f)
+                OnArrowDown();
         }
     }
 
