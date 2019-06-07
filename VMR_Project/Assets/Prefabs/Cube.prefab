@@ -161,6 +161,7 @@ MonoBehaviour:
   weight: {fileID: 7244544393458427501}
   vel: {fileID: 2835205870174450795}
   tanWeight: {fileID: 6564577790084599557}
+  ramp: {fileID: 4391396430178392434, guid: e0b5fc1513d7667478eec9bf66f4b0ad, type: 3}
 --- !u!1001 &1047067215680985465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}

@@ -15,7 +15,7 @@ public class Ground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(this);
+
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -4,65 +4,64 @@ using UnityEngine;
 
 public class FrictionButton : InteractiveObject
 {
-    public Material lowMaterial;
-    public Material middleMaterial;
-    public Material highMaterial;
     public PhysicMaterial ice;
+    public PhysicMaterial copper;
     public PhysicMaterial wood;
     public PhysicMaterial steel;
     public Animator animator;
-    public PaoloManager manager;
+    public Incline incline;
+    public FrictionBar frictionBar;
 
-    private readonly PhysicMaterial[] physicMaterials = new PhysicMaterial[3];
-    private readonly Material[] materials = new Material[3];
+    private readonly PhysicMaterial[] physicMaterials = new PhysicMaterial[4];
     private int isOn;
-    private MeshRenderer meshRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        materials[0] = lowMaterial;
-        materials[1] = middleMaterial;
-        materials[2] = highMaterial;
         physicMaterials[0] = ice;
-        physicMaterials[1] = wood;
-        physicMaterials[2] = steel;
-        meshRenderer = GetComponent<MeshRenderer>();
+        physicMaterials[1] = copper;
+        physicMaterials[2] = wood;
+        physicMaterials[3] = steel;
         isOn = 0;
-        meshRenderer.material = materials[isOn];
     }
 
     public override void OnArrowUp()
     {
         animator.SetTrigger("Pressed");
-        
-        if(isOn == 2)
+        AudioManager.instance.PlaySound(SoundType.Pop);
+
+        if (isOn == 3)
         {
             isOn = 0;
         } else
         {
             isOn++;
         }
-        meshRenderer.material = materials[isOn];
-        manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+
+        frictionBar.ChangeBarColorLength(true, false);
     }
 
     public override void OnArrowDown()
     { 
         animator.SetTrigger("Pressed");
+        AudioManager.instance.PlaySound(SoundType.Pop);
 
         if (isOn == 0)
         {
-            isOn = 2;
+            isOn = 3;
         }
         else
         {
             isOn--;
         }
-        meshRenderer.material = materials[isOn];
-        manager.ramp.incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+
+        frictionBar.ChangeBarColorLength(false, true);
     }
 
     public override void OnClick()
     {
+
     }
 }

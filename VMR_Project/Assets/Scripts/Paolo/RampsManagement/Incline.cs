@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Incline : MonoBehaviour
 {
-    Quaternion originalRotation;
-    float rotation = 45f;
+    public Cube cube;
+
+    float rotation = 50f;
+    float weightRotation = 225f;
     // Start is called before the first frame update
     void Start()
     {
-        originalRotation = this.transform.rotation;
+
     }
 
     // Update is called once per frame
@@ -25,20 +27,22 @@ public class Incline : MonoBehaviour
     {
         if(rotation < 75f)
         {
+            weightRotation -= 5f;
             rotation += 5f;
             transform.rotation = Quaternion.Euler(0, 0, rotation);
+            cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         }
     }
     void DecreaseRotation()
     {
-        if (rotation > 35f)
+        if (rotation > 40f)
         {
+            weightRotation += 5f;
             rotation -= 5f;
             transform.rotation = Quaternion.Euler(0, 0, rotation);
+            cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         }
     }
-
-    public Quaternion GetOriginalRotation() => originalRotation;
-    public void SetRotation(float rotation) => this.rotation = rotation;
+    public float GetRotation() => rotation;
         
 }
