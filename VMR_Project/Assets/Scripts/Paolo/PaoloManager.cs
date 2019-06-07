@@ -15,7 +15,7 @@ public class PaoloManager : MonoBehaviour
     private GameObject newObj;
     private GameObject cubeObj;
     private Vector3 startPosition;
-    private Quaternion startRotation;
+    private Quaternion startRotation;// = Quaternion.Euler(0, 0, 0);
     private float startMass;
     private Vector3 startScale;
     private float dynFrictionForce;
@@ -57,11 +57,20 @@ public class PaoloManager : MonoBehaviour
      */
     public void CreateCube()
     {
+        if (!cube.gameObject.activeSelf)
+            cube.gameObject.SetActive(true);
+        cube.transform.position = startPosition;
+        cube.transform.rotation = startRotation;
+        cube.GetComponent<Rigidbody>().mass = startMass;
+        cube.transform.localScale = startScale;
+        cube.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        cube.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
         cube.vel.SetScale(0);
-        newObj = Instantiate(cubeObj, startPosition, startRotation, ramp.GetIncline().transform);
+        cube.transform.SetParent(ramp.incline.transform);
+        /*newObj = Instantiate(cubeObj, startPosition, startRotation, inclineSon.transform);
         newObj.SetActive(true);
         newObj.GetComponent<Cube>().GetComponent<Rigidbody>().mass = startMass;
-        newObj.transform.localScale = startScale;
+        newObj.transform.localScale = startScale;*/
     }
 
     /*

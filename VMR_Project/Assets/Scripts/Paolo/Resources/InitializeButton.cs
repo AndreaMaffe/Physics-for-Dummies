@@ -7,13 +7,17 @@ public class InitializeButton : InteractiveObject
     public Material offMaterial;
     public Material onMaterial;
     public Animator animator;
+    public Cube cube;
     public PaoloManager manager;
+    public Incline incline;
 
     private bool isOn;
     private MeshRenderer meshRenderer;
+    private Quaternion originalRotation;
     // Start is called before the first frame update
     void Start()
     {
+        originalRotation = incline.GetOriginalRotation();
         meshRenderer = GetComponent<MeshRenderer>();
         isOn = false;
     }
@@ -40,14 +44,13 @@ public class InitializeButton : InteractiveObject
         {
             isOn = false;
             meshRenderer.material = offMaterial;
-            manager.getActiveCube().gameObject.SetActive(false);
-            manager.CreateCube();
-            manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = true;
+            cube.CreateCube();
+            cube.GetComponent<Rigidbody>().isKinematic = true;
         } else
         {
             isOn = true;
             meshRenderer.material = onMaterial;
-            manager.getActiveCube().GetComponent<Rigidbody>().isKinematic = false;
+            cube.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 }
