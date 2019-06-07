@@ -53,6 +53,10 @@ public class GravityCube : MonoBehaviour
         {
             cube.transform.position = new Vector3(cube.transform.position.x, 0.5f, cube.transform.position.z);
         }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.instance.PlaySound(SoundType.Toc);
     }
 }

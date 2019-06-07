@@ -20,19 +20,15 @@ public abstract class InteractiveObject : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (SceneManager.GetActiveScene().name != "MaffeScene")
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
+    {        
+            if (Input.GetKeyDown(KeyCode.Space) && SceneManager.GetActiveScene().name != "MaffeScene")
                 OnClick();
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 OnArrowUp();
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
-                OnArrowDown();
-        }
-
+                OnArrowDown();      
 
         if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
         {
