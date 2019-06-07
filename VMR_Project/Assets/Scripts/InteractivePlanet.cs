@@ -63,10 +63,9 @@ public class InteractivePlanet : InteractiveObject
     public void Explode()
     {
         Instantiate(explosion, this.transform.position, Quaternion.identity);
-        trailRenderer.enabled = false;
         this.transform.position = originalPosition;
-        trailRenderer.enabled = true;
-        planet.transform.rotation = Quaternion.Euler(0, 90, 0);
+        this.transform.rotation = Quaternion.identity;
+        trailRenderer.Clear();        
         rb.isKinematic = true;
         blueVector.SetActive(false);
     }

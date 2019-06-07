@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 4622354819400280706}
   - component: {fileID: 4622354819400280707}
   - component: {fileID: 4622354819400280708}
-  - component: {fileID: 4622354819400280705}
   - component: {fileID: 1868182583}
   - component: {fileID: 9042129245319862309}
   m_Layer: 0
@@ -172,22 +171,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.75143826, z: 0.99999994}
   m_Center: {x: 0, y: -0.12428098, z: 0}
---- !u!114 &4622354819400280705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622354819400280710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b02b4a3f5eef14a8c32f85d4581fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offMaterial: {fileID: 2100000, guid: 071fceec1f6cdd143952cb827ac96030, type: 2}
-  onMaterial: {fileID: 2100000, guid: 6fab5462b8fe798488b338fd4c433919, type: 2}
-  animator: {fileID: 1868182583}
-  planet: {fileID: 0}
 --- !u!95 &1868182583
 Animator:
   serializedVersion: 3
@@ -224,7 +207,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4622354819400280705}
+        - m_Target: {fileID: 0}
           m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
