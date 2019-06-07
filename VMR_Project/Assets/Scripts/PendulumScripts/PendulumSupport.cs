@@ -9,11 +9,11 @@ public class PendulumSupport : MonoBehaviour
 
     // Maximum values mass and rope length can have.
     private float maxMass = 1.25f;
-    private float maxLength = 1.27f;                                                    // This value corresponds to the y scale of the rope.
+    private float maxLength = 1.27f;                                                    // This value corresponds to the maximum y scale of the rope.
 
     // Minimum values mass and rope length can have.
     private float minMass = 1f;
-    private float minLength = 0.4f;                                                    // This value corresponds to the y scale of the rope.
+    private float minLength = 0.4f;                                                    // This value corresponds to the minimum y scale of the rope.
 
     // Values added or removed at every user interaction.
     private float deltaMass = 0.05f;
@@ -26,8 +26,8 @@ public class PendulumSupport : MonoBehaviour
     private Vector3 initialPendulumBodyPosition;
     private Vector3 initialPendulumBodyScale;
     private SoftJointLimit initialJointLimit;
-    //private float initialPendulumRotation;
 
+    // GameObjects whose parameter are needed.
     public GameObject pendulumSupport;
     public GameObject pendulumBody;
     public GameObject rope;
@@ -35,18 +35,16 @@ public class PendulumSupport : MonoBehaviour
     // These factors are used to empirically adjust the linear limit w.r.t. the scaling of the rope.
     private float linearLimitAdjustmentFactor1 = 9f;
     private float linearLimitAdjustmentFactor2 = 7.7f;
-    //public float limitScale = 0;
 
     // This value indicated whether the pendulum is in its initial position or not.
     private bool isPendulumReset = true;
 
     // This value modifies the value of the torque applied to the rope when the pendulum movement is started.
-    private float torqueAmount = 8f;
+    private float torqueAmount = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //initialPendulumRotation = pendulum.transform.rotation.eulerAngles.z;
         initialRopeRotation = rope.transform.rotation;
         initialRopeScale = rope.transform.localScale;
 
@@ -88,9 +86,6 @@ public class PendulumSupport : MonoBehaviour
                     pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = jointLimit;
 
                     //limitScale -= pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
-
-
-
                 }
             }
 
@@ -160,12 +155,6 @@ public class PendulumSupport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
                 Reset();
         }
-
-
-        /*if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            rope.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -1), ForceMode.Impulse);
-        }*/
     }
 
     /**
@@ -186,6 +175,9 @@ public class PendulumSupport : MonoBehaviour
         return (float) originalValue;
     }
 
+    /**
+     * This function brings back the pendulum to its initial state.
+     */
     private void Reset()
     {
         pendulumBody.GetComponent<Rigidbody>().isKinematic = true;
@@ -202,12 +194,11 @@ public class PendulumSupport : MonoBehaviour
         ropeLength = minLength;
 
         isPendulumReset = true;
-
-        /*pendulum.transform.position = initialPendulumTransform.position;
-        pendulum.transform.rotation = initialPendulumTransform.rotation;
-        pendulum.transform.localScale = initialPendulumTransform.localScale;*/
     }
 
+    /**
+     * This function is used to start the movement of the pendulum.
+     */
     private void MovePendulum()
     {
         isPendulumReset = false;
@@ -215,6 +206,6 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.GetComponent<Rigidbody>().isKinematic = false;
         rope.GetComponent<Rigidbody>().isKinematic = false;
 
-        rope.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, 1) * torqueAmount, ForceMode.Impulse);
+        rope.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, 1 * torqueAmount), ForceMode.VelocityChange);
     }
 }
