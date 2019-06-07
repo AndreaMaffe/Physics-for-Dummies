@@ -27,7 +27,7 @@ public class GravityCube : MonoBehaviour
 
         float gravity = Physics.gravity.magnitude;
         float h = Vector3.Distance(bottom.transform.position, ground);
-        maxEnergy = 8*rb.mass*gravity;
+        maxEnergy = 15*rb.mass*gravity;
     }
 
     void Update()
@@ -53,10 +53,5 @@ public class GravityCube : MonoBehaviour
         {
             cube.transform.position = new Vector3(cube.transform.position.x, 0.5f, cube.transform.position.z);
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        AudioManager.instance.PlaySound(SoundType.Toc);
     }
 }

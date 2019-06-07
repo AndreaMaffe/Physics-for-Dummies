@@ -25,7 +25,7 @@ public class MovableObject : InteractiveObject
         {
             float distance = Vector3.Distance(originalPosition, controller.transform.position);
             float angle = baseAngle -GetControllerRotationX();
-            if (angle > 0.000001f || angle < -0.000001f)
+            if (Mathf.Abs(angle) > 0.000001f && Mathf.Abs(angle) < 80f)
             {
                 float movement = distance * Mathf.Tan(Mathf.Deg2Rad*angle);
                 this.transform.position = originalPosition + new Vector3(0, movement, 0);
