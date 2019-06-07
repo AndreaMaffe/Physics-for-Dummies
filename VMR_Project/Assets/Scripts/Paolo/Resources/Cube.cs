@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour
+public class Cube : InteractiveObject
 {
     public Vector dyn;
     public Vector weight;
@@ -31,10 +31,8 @@ public class Cube : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        SetScaleMass();
-
         dynFrictionForce = this.DynFrictionForceComputation(incline.GetComponent<BoxCollider>().material.dynamicFriction, rb.mass, rb.velocity);
         if (dynFrictionForce > 0)
         {
@@ -54,25 +52,6 @@ public class Cube : MonoBehaviour
             
         weight.SetScale((rb.mass * Physics.gravity.magnitude) * factorScale);
         tanWeight.SetScale((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
-    }
-
-    // Mass management methods
-    public void SetScaleMass()
-    {
-        if (Input.GetKeyDown(KeyCode.M) && rb.mass < 20)
-        {
-            rb.mass++;
-            this.transform.localScale += new Vector3(0.04f, 0.04f, 0.04f);
-            this.transform.position += new Vector3(-0.02f, 0.01f, 0);
-            startPosition += new Vector3(-0.02f, 0.01f, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.N) && rb.mass > 1)
-        {
-            rb.mass--;
-            this.transform.localScale -= new Vector3(0.04f, 0.04f, 0.04f);
-            this.transform.position -= new Vector3(-0.02f, 0.01f, 0);
-            startPosition -= new Vector3(-0.02f, 0.01f, 0);
-        }
     }
 
     // Friction force computation
@@ -100,6 +79,32 @@ public class Cube : MonoBehaviour
     public void WeightAngleCorrection(Vector vector, Quaternion rotation)
     {
         vector.transform.localRotation = rotation;
+    }
+
+    public override void OnClick()
+    {
+    }
+
+    public override void OnArrowUp()
+    {
+        if (focused && rb.mass < 20)
+        {
+            rb.mass++;
+            this.transform.localScale += new Vector3(0.04f, 0.04f, 0.04f);
+            this.transform.position += new Vector3(-0.02f, 0.01f, 0);
+            startPosition += new Vector3(-0.02f, 0.01f, 0);
+        }
+    }
+
+    public override void OnArrowDown()
+    {
+        if (focused && rb.mass > 1)
+        {
+            rb.mass--;
+            this.transform.localScale -= new Vector3(0.04f, 0.04f, 0.04f);
+            this.transform.position -= new Vector3(-0.02f, 0.01f, 0);
+            startPosition -= new Vector3(-0.02f, 0.01f, 0);
+        }
     }
 }
 

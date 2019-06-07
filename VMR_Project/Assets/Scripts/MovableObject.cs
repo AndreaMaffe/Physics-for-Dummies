@@ -42,26 +42,24 @@ public class MovableObject : InteractiveObject
     }
 
     public override void OnClick()
-    {
-        if (focused)
+    {       
+        if (dragged)
         {
-            Debug.Log(gameObject.name + "clicked!");
-            if (dragged)
-            {
-                Debug.Log("Released!");
-                dragged = false;
-                rb.isKinematic = false;
-            }
+            Debug.Log("Released!");
+            dragged = false;
+            rb.isKinematic = false;
+        }
 
-            else
+        else
+        {
+            if (focused)
             {
                 Debug.Log("Dragged!");
                 dragged = true;
                 baseAngle = GetControllerRotationX();
                 rb.isKinematic = true;
             }
-        }
-
+        }        
     }
 
     private float GetControllerRotationX()

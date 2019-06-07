@@ -27,41 +27,29 @@ public class FrictionButton : InteractiveObject
 
     public override void OnArrowUp()
     {
+
+    }
+
+    public override void OnArrowDown()
+    { 
+
+    }
+
+    public override void OnClick()
+    {
         animator.SetTrigger("Pressed");
         AudioManager.instance.PlaySound(SoundType.Pop);
 
         if (isOn == 3)
         {
             isOn = 0;
-        } else
+        }
+        else
         {
             isOn++;
         }
         incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
 
         frictionBar.ChangeBarColorLength(true, false);
-    }
-
-    public override void OnArrowDown()
-    { 
-        animator.SetTrigger("Pressed");
-        AudioManager.instance.PlaySound(SoundType.Pop);
-
-        if (isOn == 0)
-        {
-            isOn = 3;
-        }
-        else
-        {
-            isOn--;
-        }
-        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
-
-        frictionBar.ChangeBarColorLength(false, true);
-    }
-
-    public override void OnClick()
-    {
-
     }
 }
