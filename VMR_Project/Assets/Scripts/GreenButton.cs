@@ -33,6 +33,7 @@ public class GreenButton : InteractiveObject
 
     public override void OnClick()
     {
-        gameManager.GoToExperience(index);
+        if (focused)
+            gameManager.GoToExperience(index);
     }
 }

@@ -2,26 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Incline : MonoBehaviour
+public class Incline : InteractiveObject
 {
     public Cube cube;
 
     float rotation = 50f;
     float weightRotation = 225f;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-            IncreaseRotation();
-        if (Input.GetKeyDown(KeyCode.T))
-            DecreaseRotation();
-    }
 
     void IncreaseRotation()
     {
@@ -43,6 +29,22 @@ public class Incline : MonoBehaviour
             cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         }
     }
+
     public float GetRotation() => rotation;
-        
+
+    public override void OnClick()
+    {
+    }
+
+    public override void OnArrowUp()
+    {
+        if (focused)
+            IncreaseRotation();
+    }
+
+    public override void OnArrowDown()
+    {
+        if (focused)
+            DecreaseRotation();
+    }
 }
