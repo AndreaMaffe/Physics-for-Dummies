@@ -15,18 +15,14 @@ public class Cube : MonoBehaviour
     private float factorScale;
     private Vector3 startPosition;
     private Quaternion startRotation;
-    private float startMass;
-    private Vector3 startScale;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        startMass = rb.mass;
         factorScale = (float)0.02;
         startPosition = this.transform.localPosition;
         startRotation = this.transform.localRotation;
-        startScale = this.transform.localScale;
 
         this.dyn.SetScale(0);
         this.vel.SetScale(0);
@@ -84,7 +80,7 @@ public class Cube : MonoBehaviour
         (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4) * velocity / velocity.magnitude).magnitude;
     public void DynSetScale(float scale)
     {
-        dyn.SetScale(scale * (factorScale * 3));
+        dyn.SetScale(scale * (factorScale * (float)3.5));
     }
 
     // Move the cube again on top of the ramp

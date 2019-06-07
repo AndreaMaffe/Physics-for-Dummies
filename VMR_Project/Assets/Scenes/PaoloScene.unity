@@ -1425,6 +1425,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4622354819400280710, guid: dd3be445a3411e347a20309070832f7f,
+        type: 3}
+      propertyPath: m_Name
+      value: FrictionButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4622354820049783694, guid: dd3be445a3411e347a20309070832f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1484,17 +1489,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 739e8e4c07c6dfc408c8b3abe8852a1f, type: 2}
+      objectReference: {fileID: 2100000, guid: f1177d785405c65468228c024f703cdb, type: 2}
     - target: {fileID: 4622354818163891610, guid: dd3be445a3411e347a20309070832f7f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a7f2db00d253c9045b1629a76a7dc0ef, type: 2}
-    - target: {fileID: 4622354819400280710, guid: dd3be445a3411e347a20309070832f7f,
-        type: 3}
-      propertyPath: m_Name
-      value: FrictionButton
-      objectReference: {fileID: 0}
     - target: {fileID: 4622354819400280707, guid: dd3be445a3411e347a20309070832f7f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1593,7 +1593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionBar: {fileID: 827658383}
-  ice: {fileID: 2100000, guid: 071fceec1f6cdd143952cb827ac96030, type: 2}
+  ice: {fileID: 2100000, guid: 6a46d6276d1c46d4080e6d98fca9bede, type: 2}
+  copper: {fileID: 2100000, guid: 071fceec1f6cdd143952cb827ac96030, type: 2}
   wood: {fileID: 2100000, guid: d2a1729eb9d35a44f89666bae4218c29, type: 2}
   steel: {fileID: 2100000, guid: 6fab5462b8fe798488b338fd4c433919, type: 2}
 --- !u!4 &1432446487 stripped
@@ -1975,6 +1976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InitializeBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4622354819400280710, guid: dd3be445a3411e347a20309070832f7f,
+        type: 3}
+      propertyPath: m_Name
+      value: InitializeButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4622354820049783694, guid: dd3be445a3411e347a20309070832f7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2030,6 +2036,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4622354820049783680, guid: dd3be445a3411e347a20309070832f7f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1177d785405c65468228c024f703cdb, type: 2}
+    - target: {fileID: 4622354818163891610, guid: dd3be445a3411e347a20309070832f7f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7f2db00d253c9045b1629a76a7dc0ef, type: 2}
     - target: {fileID: 9042129245319862309, guid: dd3be445a3411e347a20309070832f7f,
         type: 3}
       propertyPath: m_Delegates.Array.size
@@ -2085,21 +2101,6 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_TypeName
       value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 4622354820049783680, guid: dd3be445a3411e347a20309070832f7f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 739e8e4c07c6dfc408c8b3abe8852a1f, type: 2}
-    - target: {fileID: 4622354818163891610, guid: dd3be445a3411e347a20309070832f7f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a7f2db00d253c9045b1629a76a7dc0ef, type: 2}
-    - target: {fileID: 4622354819400280710, guid: dd3be445a3411e347a20309070832f7f,
-        type: 3}
-      propertyPath: m_Name
-      value: InitializeButton
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4622354819400280705, guid: dd3be445a3411e347a20309070832f7f, type: 3}
@@ -2191,6 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ice: {fileID: 13400000, guid: 825cdeb1ac5893c46888978a60fe3b3b, type: 2}
+  copper: {fileID: 13400000, guid: 7dc3c0c7f2ad0a14798dc1756b8bf11f, type: 2}
   wood: {fileID: 13400000, guid: f4ecb811b7aeef74b9541c5a04655824, type: 2}
   steel: {fileID: 13400000, guid: 1a5073306d7de5c49b42e8577e99a38d, type: 2}
   animator: {fileID: 1848911705}

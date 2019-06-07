@@ -5,21 +5,23 @@ using UnityEngine;
 public class FrictionButton : InteractiveObject
 {
     public PhysicMaterial ice;
+    public PhysicMaterial copper;
     public PhysicMaterial wood;
     public PhysicMaterial steel;
     public Animator animator;
     public Incline incline;
     public FrictionBar frictionBar;
 
-    private readonly PhysicMaterial[] physicMaterials = new PhysicMaterial[3];
+    private readonly PhysicMaterial[] physicMaterials = new PhysicMaterial[4];
     private int isOn;
 
     // Start is called before the first frame update
     void Start()
     {
         physicMaterials[0] = ice;
-        physicMaterials[1] = wood;
-        physicMaterials[2] = steel;
+        physicMaterials[1] = copper;
+        physicMaterials[2] = wood;
+        physicMaterials[3] = steel;
         isOn = 0;
     }
 
@@ -28,7 +30,7 @@ public class FrictionButton : InteractiveObject
         animator.SetTrigger("Pressed");
         AudioManager.instance.PlaySound(SoundType.Pop);
 
-        if (isOn == 2)
+        if (isOn == 3)
         {
             isOn = 0;
         } else
@@ -47,7 +49,7 @@ public class FrictionButton : InteractiveObject
 
         if (isOn == 0)
         {
-            isOn = 2;
+            isOn = 3;
         }
         else
         {

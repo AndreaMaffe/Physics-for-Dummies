@@ -35,7 +35,7 @@ public class Incline : MonoBehaviour
     }
     void DecreaseRotation()
     {
-        if (rotation > 35f)
+        if (rotation > 40f)
         {
             weightRotation += 5f;
             rotation -= 5f;

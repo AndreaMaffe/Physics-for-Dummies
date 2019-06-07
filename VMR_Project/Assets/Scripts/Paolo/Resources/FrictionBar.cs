@@ -6,13 +6,14 @@ public class FrictionBar : MonoBehaviour
 {
     public GameObject frictionBar;
     public Material ice;
+    public Material copper;
     public Material wood;
     public Material steel;
 
     private float maxBarSize;
     private float actualSize;
     private float sizeToIncrement;
-    private Material[] materials = new Material[3];
+    private Material[] materials = new Material[4];
     private int index;
     private MeshRenderer meshRenderer;
 
@@ -21,13 +22,15 @@ public class FrictionBar : MonoBehaviour
     {
         meshRenderer = frictionBar.GetComponentInChildren<MeshRenderer>();
         maxBarSize = frictionBar.transform.localScale.x;
-        actualSize = maxBarSize / 3;
+        actualSize = 0;
         sizeToIncrement = maxBarSize / 3;
         materials[0] = ice;
-        materials[1] = wood;
-        materials[2] = steel;
+        materials[1] = copper;
+        materials[2] = wood;
+        materials[3] = steel;
         meshRenderer.material = ice;
         index = 0;
+        frictionBar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,13 +44,16 @@ public class FrictionBar : MonoBehaviour
     {
         if (increase)
         {
-            if (index == 2)
+            if (index == 3)
             {
                 index = 0;
-                actualSize = sizeToIncrement;
+                actualSize = 0;
+                frictionBar.SetActive(false);
             }
             else
             {
+                if (!frictionBar.activeSelf)
+                    frictionBar.SetActive(true);
                 index++;
                 actualSize += sizeToIncrement;
             }       
@@ -55,14 +61,17 @@ public class FrictionBar : MonoBehaviour
         if (decrease)
         {
             if (index == 0)
-            { 
-                index = 2;
+            {
+                frictionBar.SetActive(true);
+                index = 3;
                 actualSize = maxBarSize;
             }
             else
             {
                 index--;
                 actualSize -= sizeToIncrement;
+                if (index == 0)
+                    frictionBar.SetActive(false);
             }
         }
         meshRenderer.material = materials[index];
