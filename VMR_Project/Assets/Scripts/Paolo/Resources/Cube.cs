@@ -37,7 +37,6 @@ public class Cube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(this);
         SetScaleMass();
 
         dynFrictionForce = this.DynFrictionForceComputation(incline.GetComponent<BoxCollider>().material.dynamicFriction, rb.mass, rb.velocity);
@@ -83,7 +82,7 @@ public class Cube : MonoBehaviour
         (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4) * velocity / velocity.magnitude).magnitude;
     public void DynSetScale(float scale)
     {
-        dyn.SetScale(scale * (factorScale * (float)2.5));
+        dyn.SetScale(scale * (factorScale * 3));
     }
 
     // Move the cube again on top of the ramp

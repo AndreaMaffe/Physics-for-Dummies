@@ -36,7 +36,8 @@ public class FrictionBar : MonoBehaviour
         frictionBar.transform.localScale = new Vector3(actualSize, frictionBar.transform.localScale.y, frictionBar.transform.localScale.z);
     }
 
-    public void ChangeBarLength(bool increase, bool decrease)
+    //Change size and color of the friction bar
+    public void ChangeBarColorLength(bool increase, bool decrease)
     {
         if (increase)
         {

@@ -37,7 +37,7 @@ public class FrictionButton : InteractiveObject
         }
         incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
 
-        frictionBar.ChangeBarLength(true, false);
+        frictionBar.ChangeBarColorLength(true, false);
     }
 
     public override void OnArrowDown()
@@ -55,10 +55,11 @@ public class FrictionButton : InteractiveObject
         }
         incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
 
-        frictionBar.ChangeBarLength(false, true);
+        frictionBar.ChangeBarColorLength(false, true);
     }
 
     public override void OnClick()
     {
+
     }
 }
