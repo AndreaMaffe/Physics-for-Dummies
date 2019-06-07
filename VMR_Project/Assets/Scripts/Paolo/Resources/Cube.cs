@@ -68,12 +68,14 @@ public class Cube : MonoBehaviour
             rb.mass++;
             this.transform.localScale += new Vector3(0.04f, 0.04f, 0.04f);
             this.transform.position += new Vector3(-0.02f, 0.01f, 0);
+            startPosition += new Vector3(-0.02f, 0.01f, 0);
         }
         if (Input.GetKeyDown(KeyCode.N) && rb.mass > 1)
         {
             rb.mass--;
             this.transform.localScale -= new Vector3(0.04f, 0.04f, 0.04f);
             this.transform.position -= new Vector3(-0.02f, 0.01f, 0);
+            startPosition -= new Vector3(-0.02f, 0.01f, 0);
         }
     }
 
@@ -92,8 +94,6 @@ public class Cube : MonoBehaviour
             this.gameObject.SetActive(true);
         this.transform.localPosition = startPosition;
         this.transform.localRotation = startRotation;
-        this.transform.localScale = startScale;
-        this.GetComponent<Rigidbody>().mass = startMass;
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         this.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
         this.vel.SetScale(0);
