@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ramp : MonoBehaviour
+public class Pivot : MonoBehaviour
 {
-    public Incline incline;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(this);
+        
     }
-
-    public Incline GetIncline() => this.incline;
 }
