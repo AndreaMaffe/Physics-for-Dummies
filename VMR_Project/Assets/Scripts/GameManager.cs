@@ -16,7 +16,10 @@ public class GameManager : MonoBehaviour
 
     public FadingText title, subtitle;
     public GameObject mainMenuObjects;
+    public SpriteRenderer mainMenuSignBoard;
     public GameObject[] experiences;
+    public Sprite[] experiencesSprites;
+
 
     void Start()
     {
@@ -82,7 +85,7 @@ public class GameManager : MonoBehaviour
     }
 
     //MainMenu --> Experience
-    private void GoToExperience(int experienceIndex)
+    public void GoToExperience(int experienceIndex)
     {
         AudioManager.instance.PlaySound(SoundType.HardPop);
         mainMenuObjects.SetActive(false);
@@ -108,6 +111,11 @@ public class GameManager : MonoBehaviour
         gameStatus = GameStatus.OnTitleScreen;
         title.Restore();
         subtitle.Restore();
+    }
+
+    public void OnOverButton(int buttonIndex)
+    {
+        mainMenuSignBoard.sprite = experiencesSprites[buttonIndex];
     }
 
 

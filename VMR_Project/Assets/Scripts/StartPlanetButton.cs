@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartButton : InteractiveObject
+public class StartPlanetButton : InteractiveObject
 {
     public Material offMaterial;
     public Material onMaterial;
@@ -40,17 +40,21 @@ public class StartButton : InteractiveObject
                 isOn = false;
                 meshRenderer.material = offMaterial;
                 planet.Explode();
-                Debug.Log("Off");
             }
 
             else
             {
-                Debug.Log("On");
                 isOn = true;
                 meshRenderer.material = onMaterial;
                 planet.StartMoving();
             }
         }
+    }
+
+    public void OnPlanetCollision()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
     }
 
 

@@ -6,12 +6,14 @@ public class GreenButton : InteractiveObject
 {
     public Animator animator;
     public int index;
+    public GameManager gameManager;
 
     public override void OnFocusEnter()
     {
         Debug.Log(gameObject.name + "focused!");
         focused = true;
         animator.SetBool("Focused", true);
+        gameManager.OnOverButton(index);
     }
 
     public override void OnFocusExit()
@@ -31,6 +33,6 @@ public class GreenButton : InteractiveObject
 
     public override void OnClick()
     {
-
+        gameManager.GoToExperience(index);
     }
 }

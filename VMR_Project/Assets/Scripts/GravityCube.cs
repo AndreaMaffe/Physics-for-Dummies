@@ -49,9 +49,9 @@ public class GravityCube : MonoBehaviour
 
         LineDrawer.Instance.DrawDottedLine(bottom.transform.position, ground);
 
-        if (cube.transform.position.y < 0.5)
+        if (cube.transform.position.y < 0.5f)
         {
-            //TODO: finish
+            cube.transform.position = new Vector3(cube.transform.position.x, 0.5f, cube.transform.position.z);
         }
 
     }

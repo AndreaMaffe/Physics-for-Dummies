@@ -8,11 +8,13 @@ public class InteractivePlanet : InteractiveObject
     private Vector3 lastFramePosition;
     private Vector3 originalPosition;
     private GameObject explosion;
+    private TrailRenderer trailRenderer;
 
     private float scale;
 
     public GameObject blueVector;
-
+    public GameObject planet;
+    public StartPlanetButton startButton;
     public Rigidbody otherRb;
     public float amount;
 
@@ -24,6 +26,7 @@ public class InteractivePlanet : InteractiveObject
         lastFramePosition = transform.position;
 
         explosion = Resources.Load<GameObject>("PoffAnimation");
+        trailRenderer = planet.transform.Find("Trail").GetComponent<TrailRenderer>();
         scale = 1f;
         blueVector.gameObject.SetActive(false);
     }
@@ -48,22 +51,23 @@ public class InteractivePlanet : InteractiveObject
 
         lastFramePosition = this.transform.position;
 
-        if (Vector3.Distance(transform.position, otherRb.transform.position) > 35f)
-            Explode();
-
         //LineDrawer.Instance.DrawDottedLine(this.transform.position, otherRb.transform.position);
     }
 
     void OnCollisionEnter(Collision collision)
     {
         Explode();
+        startButton.OnPlanetCollision();
     }
 
     public void Explode()
     {
         Instantiate(explosion, this.transform.position, Quaternion.identity);
-        rb.isKinematic = true;
+        trailRenderer.enabled = false;
         this.transform.position = originalPosition;
+        trailRenderer.enabled = true;
+        planet.transform.rotation = Quaternion.Euler(0, 90, 0);
+        rb.isKinematic = true;
         blueVector.SetActive(false);
     }
 
