@@ -359,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 8678838539396594581, guid: 3f23e0a3b6ead40d09f78a5b68ea50d1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8678838539396594582, guid: 3f23e0a3b6ead40d09f78a5b68ea50d1,
         type: 3}
@@ -2227,6 +2227,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8aaa9ca36a1e2044b442d7c808e2593, type: 3}
+--- !u!1 &748659043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2490678700585995655, guid: 613c1db22416dd24e9538e4e1444e8a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1637163626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &748659046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7635888297455692509, guid: 613c1db22416dd24e9538e4e1444e8a2,
@@ -5066,7 +5072,7 @@ PrefabInstance:
     - target: {fileID: 2490678700585995655, guid: 613c1db22416dd24e9538e4e1444e8a2,
         type: 3}
       propertyPath: m_Name
-      value: ScalableObjectButton
+      value: InteractableObjectButton
       objectReference: {fileID: 0}
     - target: {fileID: 7635888297455692509, guid: 613c1db22416dd24e9538e4e1444e8a2,
         type: 3}
@@ -5884,7 +5890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cb482dfdf4f764a9e382d7c532ae35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offMaterial: {fileID: 2100000, guid: 3f0d0436bdb79e742bd4c2b02bfc2bec, type: 2}
+  offMaterial: {fileID: 2100000, guid: 071fceec1f6cdd143952cb827ac96030, type: 2}
   onMaterial: {fileID: 2100000, guid: 6fab5462b8fe798488b338fd4c433919, type: 2}
   animator: {fileID: 1805470452}
   planet1: {fileID: 949002102}
@@ -7213,7 +7219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea1ef6b5ef9f6544a16ba0311c2506b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableButton: {fileID: 0}
+  interactableButton: {fileID: 748659043}
   blueVector: {fileID: 1966262677}
   planet: {fileID: 1815904805592956490}
   startButton: {fileID: 994250312}
