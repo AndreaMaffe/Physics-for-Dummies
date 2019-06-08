@@ -18,7 +18,7 @@ public class InteractiveHeight : InteractiveObject
 
     public GameObject rope;
     public GameObject pendulumBody;
-    public GameObject pendulumSupport;
+    public PendulumSupport pendulumSupport;
 
     public override void OnArrowDown()
     {
@@ -31,16 +31,16 @@ public class InteractiveHeight : InteractiveObject
                 rope.transform.localScale = tempScale;
                 ropeLength = rope.transform.localScale.y;
 
-                // Adjust pendulum body position
-                Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y - deltaLength * pendulumSupportScale,
-                    pendulumBody.transform.position.z);
-                pendulumBody.transform.position = newPosition;
-
                 // Adjust pendulum body's configurable joint connected anchor.
                 Vector3 newAnchor = new Vector3(pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.x,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.y - deltaLength / pendulumSupportScale,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.z);
                 pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor = newAnchor;
+
+                // Adjust pendulum body position
+                Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y - deltaLength * pendulumSupportScale,
+                    pendulumBody.transform.position.z);
+                pendulumBody.transform.position = newPosition;
             }
         }
     }
@@ -56,18 +56,23 @@ public class InteractiveHeight : InteractiveObject
                 rope.transform.localScale = tempScale;
                 ropeLength = rope.transform.localScale.y;
 
-                // Adjust pendulum body position
-                Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y + deltaLength * pendulumSupportScale,
-                    pendulumBody.transform.position.z);
-                pendulumBody.transform.position = newPosition;
-
                 // Adjust pendulum body's configurable joint connected anchor.
                 Vector3 newAnchor = new Vector3(pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.x,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.y + deltaLength / pendulumSupportScale,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.z);
                 pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor = newAnchor;
+
+                // Adjust pendulum body position
+                Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y + deltaLength * pendulumSupportScale,
+                    pendulumBody.transform.position.z);
+                pendulumBody.transform.position = newPosition;
             }
         }
+    }
+
+    public void OnDisable()
+    {
+        pendulumSupport.Reset();
     }
 
     public override void OnClick()

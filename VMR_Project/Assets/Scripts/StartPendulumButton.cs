@@ -9,6 +9,8 @@ public class StartPendulumButton : InteractiveObject
     public Animator animator;
 
     public PendulumSupport pendulum;
+    public GameObject interactableButtonRope;
+    public GameObject interactableButtonBody;
 
     private bool isOn;
     private MeshRenderer meshRenderer;
@@ -42,6 +44,9 @@ public class StartPendulumButton : InteractiveObject
                 isOn = false;
                 meshRenderer.material = offMaterial;
                 pendulum.Reset();
+                interactableButtonBody.SetActive(true);
+                interactableButtonRope.SetActive(true);
+
             }
 
             else
@@ -49,6 +54,8 @@ public class StartPendulumButton : InteractiveObject
                 isOn = true;
                 meshRenderer.material = onMaterial;
                 pendulum.MovePendulum();
+                interactableButtonBody.SetActive(false);
+                interactableButtonRope.SetActive(false);
             }
         }
     }

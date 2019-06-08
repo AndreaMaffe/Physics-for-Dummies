@@ -15,9 +15,20 @@ public class InteractiveBody : InteractiveObject
     private float deltaMass = 0.05f;
     private float deltaWeightScale = 0.5f;
 
-    public GameObject pendulumSupport;
+    public PendulumSupport pendulumSupport;
     public Vector weight;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        mass = this.gameObject.GetComponent<Rigidbody>().mass;
+        weightScale = 2;
+        weight.SetScale(weightScale);
+    }
+
+    /**
+     * Used to decrease the mass.
+     */
     public override void OnArrowDown()
     {
         if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset)
@@ -29,8 +40,11 @@ public class InteractiveBody : InteractiveObject
                 this.gameObject.GetComponent<Rigidbody>().mass = mass;
 
                 // Descrease the pendulum's scale.
-                Vector3 newScale = this.gameObject.transform.localScale - new Vector3(0.03f, 0.03f, 0.03f);
+                Vector3 newScale = this.gameObject.transform.localScale - new Vector3(0.02f, 0.02f, 0.02f);
                 this.gameObject.transform.localScale = newScale;
+
+                // Adjust the SphereCollider radius, so that it remains constant with the pendulumBody scaling.
+                this.gameObject.GetComponent<SphereCollider>().radius = pendulumSupport.pendulumBodyColliderRadius / this.gameObject.transform.localScale.x;
 
                 // Decrease weight scale.
                 weight.SetScale(weightScale);
@@ -40,6 +54,9 @@ public class InteractiveBody : InteractiveObject
         }
     }
 
+    /**
+     * Used to increase the mass.
+     */
     public override void OnArrowUp()
     {
         if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset)
@@ -51,8 +68,11 @@ public class InteractiveBody : InteractiveObject
                 this.gameObject.GetComponent<Rigidbody>().mass = mass;
 
                 // Increase the pendulum's scale.
-                Vector3 newScale = this.gameObject.transform.localScale + new Vector3(0.03f, 0.03f, 0.03f);
+                Vector3 newScale = this.gameObject.transform.localScale + new Vector3(0.02f, 0.02f, 0.02f);
                 this.gameObject.transform.localScale = newScale;
+
+                // Adjust the SphereCollider radius, so that it remains constant with the pendulumBody scaling.
+                this.gameObject.GetComponent<SphereCollider>().radius = pendulumSupport.pendulumBodyColliderRadius / this.gameObject.transform.localScale.x;
 
                 // Increase weight scale.
                 weight.SetScale(weightScale);
@@ -62,16 +82,13 @@ public class InteractiveBody : InteractiveObject
         }
     }
 
+    public void OnDisable()
+    {
+        pendulumSupport.Reset();
+    }
+
     public override void OnClick()
     {
         // Not needed.
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        mass = this.gameObject.GetComponent<Rigidbody>().mass;
-        weightScale = 2;
-        weight.SetScale(weightScale);
     }
 }
