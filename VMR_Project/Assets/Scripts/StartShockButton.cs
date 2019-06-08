@@ -30,10 +30,7 @@ public class StartShockButton : InteractiveObject
 
     public override void OnClick()
     {
-<<<<<<< Updated upstream
-=======
         //if (focused)
->>>>>>> Stashed changes
         {
             animator.SetTrigger("Pressed");
             AudioManager.instance.PlaySound(SoundType.Pop);
