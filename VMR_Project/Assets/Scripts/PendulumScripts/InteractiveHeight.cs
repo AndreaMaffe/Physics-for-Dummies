@@ -16,10 +16,6 @@ public class InteractiveHeight : InteractiveObject
     // Scale of the whole object, saved in a variable for performance reasons.
     private float pendulumSupportScale = 10;
 
-    // These factors are used to empirically adjust the linear limit w.r.t. the scaling of the rope.
-    //private float linearLimitAdjustmentFactor1 = 9f;
-    //private float linearLimitAdjustmentFactor2 = 7.7f;
-
     public GameObject rope;
     public GameObject pendulumBody;
     public GameObject pendulumSupport;
@@ -40,19 +36,11 @@ public class InteractiveHeight : InteractiveObject
                     pendulumBody.transform.position.z);
                 pendulumBody.transform.position = newPosition;
 
-                // Adjust pendulum body's configurable joint linear limit.
-                /*SoftJointLimit jointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
-                jointLimit.limit += (tempScale.y * pendulumSupportScale / linearLimitAdjustmentFactor1);
-                pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = jointLimit;*/
-
                 // Adjust pendulum body's configurable joint connected anchor.
                 Vector3 newAnchor = new Vector3(pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.x,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.y - deltaLength / pendulumSupportScale,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.z);
                 pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor = newAnchor;
-
-                //limitScale = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
-                //limitScale -= pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
             }
         }
     }
@@ -73,19 +61,11 @@ public class InteractiveHeight : InteractiveObject
                     pendulumBody.transform.position.z);
                 pendulumBody.transform.position = newPosition;
 
-                // Adjust pendulum body's configurable joint linear limit.
-                /*SoftJointLimit jointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
-                jointLimit.limit -= (tempScale.y * pendulumSupportScale / linearLimitAdjustmentFactor2);
-                pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = jointLimit;*/
-
                 // Adjust pendulum body's configurable joint connected anchor.
                 Vector3 newAnchor = new Vector3(pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.x,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.y + deltaLength / pendulumSupportScale,
                     pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor.z);
                 pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor = newAnchor;
-
-                //limitScale = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
-                //limitScale -= pendulumBody.GetComponent<ConfigurableJoint>().linearLimit.limit;
             }
         }
     }

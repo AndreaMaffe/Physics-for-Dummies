@@ -5,13 +5,15 @@ using UnityEngine;
 public class InteractiveBody : InteractiveObject
 {
     public float mass;
+    public float weightScale;
 
     // Extreme values the pendulum mass can have.
     private float minMass = 1f;
-    private float maxMass = 1.25f;
+    private float maxMass = 1.3f;
 
     // Value added or removed at every user interaction.
     private float deltaMass = 0.05f;
+    private float deltaWeightScale = 0.5f;
 
     public GameObject pendulumSupport;
     public Vector weight;
@@ -23,6 +25,7 @@ public class InteractiveBody : InteractiveObject
             if (mass > minMass)
             {
                 mass -= deltaMass;
+                weightScale -= deltaWeightScale;
                 this.gameObject.GetComponent<Rigidbody>().mass = mass;
 
                 // Descrease the pendulum's scale.
@@ -30,7 +33,7 @@ public class InteractiveBody : InteractiveObject
                 this.gameObject.transform.localScale = newScale;
 
                 // Decrease weight scale.
-                weight.SetScale(mass / 5);
+                weight.SetScale(weightScale);
 
                 //todo adjust collider
             }
@@ -44,6 +47,7 @@ public class InteractiveBody : InteractiveObject
             if (mass < maxMass)
             {
                 mass += deltaMass;
+                weightScale += deltaWeightScale;
                 this.gameObject.GetComponent<Rigidbody>().mass = mass;
 
                 // Increase the pendulum's scale.
@@ -51,7 +55,7 @@ public class InteractiveBody : InteractiveObject
                 this.gameObject.transform.localScale = newScale;
 
                 // Increase weight scale.
-                weight.SetScale(mass * 5);
+                weight.SetScale(weightScale);
 
                 //todo adjust collider
             }
@@ -67,6 +71,7 @@ public class InteractiveBody : InteractiveObject
     void Start()
     {
         mass = this.gameObject.GetComponent<Rigidbody>().mass;
-        weight.SetScale(mass * 2);
+        weightScale = 2;
+        weight.SetScale(weightScale);
     }
 }

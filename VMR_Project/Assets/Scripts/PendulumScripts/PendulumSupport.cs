@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PendulumSupport : MonoBehaviour
 {
-    public float mass;
-    public float ropeLength;
     private float initialMass;
     private float initialRopeLength;
 
@@ -29,11 +27,13 @@ public class PendulumSupport : MonoBehaviour
     private Vector3 initialPendulumBodyScale;
     //private SoftJointLimit initialJointLimit;
     private Vector3 initialConnectedAnchor;
+    private float initialWeightScale;
 
     // GameObjects whose parameters are needed.
     public GameObject pendulumSupport;
     public GameObject pendulumBody;
     public GameObject rope;
+    public GameObject height;
     public Vector weight;
 
     // These factors are used to empirically adjust the linear limit w.r.t. the scaling of the rope.
@@ -58,28 +58,9 @@ public class PendulumSupport : MonoBehaviour
         //initialJointLimit = pendulumBody.GetComponent<ConfigurableJoint>().linearLimit;
         initialConnectedAnchor = pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor;
 
-        mass = pendulumBody.GetComponent<Rigidbody>().mass;
-        initialMass = mass;
-        ropeLength = rope.transform.localScale.y;
-        initialRopeLength = ropeLength;
-    }
-
-    /**
-     * This function normalizes the length of the rope between 0 and 1 using the standard normalization formula.
-     */
-    float Normalize(float valueToNormalize, float maxValue, float minValue)
-    {
-        double normalizedLength = (valueToNormalize - minValue) / (maxValue - minValue);
-        return (float) normalizedLength;
-    }
-
-    /**
-     * This function brings back the value in input to its non-normalized state.
-     */
-    float DeNormalize(float valueToDeNormalize, float maxValue, float minValue)
-    {
-        double originalValue = valueToDeNormalize * (maxValue - minValue) + minValue;
-        return (float) originalValue;
+        initialMass = pendulumBody.GetComponent<Rigidbody>().mass;
+        initialRopeLength = rope.transform.localScale.y;
+        initialWeightScale = 2;
     }
 
     /**
@@ -93,15 +74,14 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.transform.position = initialPendulumBodyPosition;
         pendulumBody.transform.rotation = initialPendulumBodyRotation;
         pendulumBody.transform.localScale = initialPendulumBodyScale;
-        //pendulumBody.GetComponent<ConfigurableJoint>().linearLimit = initialJointLimit;
         pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor = initialConnectedAnchor;
-        mass = initialMass;
-        weight.SetScale(mass);
-
+        pendulumBody.GetComponent<InteractiveBody>().mass = initialMass;
+        pendulumBody.GetComponent<InteractiveBody>().weightScale = initialWeightScale;
+        weight.SetScale(initialWeightScale);
 
         rope.transform.rotation = initialRopeRotation;
         rope.transform.localScale = initialRopeScale;
-        ropeLength = initialRopeLength;
+        height.GetComponent<InteractiveHeight>().ropeLength = initialRopeLength;
 
         isPendulumReset = true;
     }
