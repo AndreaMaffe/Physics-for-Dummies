@@ -37,20 +37,23 @@ public class FrictionButton : InteractiveObject
 
     public override void OnClick()
     {
-        animator.SetTrigger("Pressed");
-        AudioManager.instance.PlaySound(SoundType.Pop);
-
-        if (isOn == 3)
+        if (focused)
         {
-            isOn = 0;
-        }
-        else
-        {
-            isOn++;
-        }
-        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+            animator.SetTrigger("Pressed");
+            AudioManager.instance.PlaySound(SoundType.Pop);
 
-        frictionBar.ChangeBarColorLength(true, false);
+            if (isOn == 3)
+            {
+                isOn = 0;
+            }
+            else
+            {
+                isOn++;
+            }
+            incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+
+            frictionBar.ChangeBarColorLength(true, false);
+        }
     }
     public void OnDisable()
     {

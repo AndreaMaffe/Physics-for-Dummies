@@ -30,19 +30,23 @@ public class InitializeButton : InteractiveObject
 
     public override void OnClick()
     {
-        animator.SetTrigger("Pressed");
-        AudioManager.instance.PlaySound(SoundType.Pop);
+        if (focused)
+        {
+            animator.SetTrigger("Pressed");
+            AudioManager.instance.PlaySound(SoundType.Pop);
 
-        if (isOn)
-        {
-            isOn = false;
-            meshRenderer.material = offMaterial;
-            cube.GetComponent<Rigidbody>().isKinematic = true;
-        } else
-        {
-            isOn = true;
-            meshRenderer.material = onMaterial;
-            cube.GetComponent<Rigidbody>().isKinematic = false;
+            if (isOn)
+            {
+                isOn = false;
+                meshRenderer.material = offMaterial;
+                cube.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            else
+            {
+                isOn = true;
+                meshRenderer.material = onMaterial;
+                cube.GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
     }
     public void OnDisable()
