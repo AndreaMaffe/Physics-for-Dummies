@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
     public GameObject velocityX;
     public GameObject velocityY;
     public GameObject gravity;
+    public GameObject puffAnimation;
 
     private float factorScale = 0.15f;
     private Vector3 lastFramePosition;
@@ -51,6 +52,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             GetComponent<Rigidbody>().isKinematic = true;
+            GameObject puff = Instantiate(puffAnimation, transform.position, transform.rotation);
             AudioManager.instance.PlaySound(SoundType.Boom);
             bullet.SetActive(false);
             velocity.SetActive(false);
