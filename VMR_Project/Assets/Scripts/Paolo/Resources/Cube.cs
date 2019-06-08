@@ -75,7 +75,6 @@ public class Cube : InteractiveObject
     public override void OnClick()
     {
     }
-
     public override void OnArrowUp()
     {
         if (focused && rb.mass < 20)
@@ -86,7 +85,6 @@ public class Cube : InteractiveObject
             startPosition += new Vector3(-0.02f, 0.01f, 0);
         }
     }
-
     public override void OnArrowDown()
     {
         if (focused && rb.mass > 1)
