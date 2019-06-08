@@ -56,5 +56,11 @@ public class StartPlanetButton : InteractiveObject
         meshRenderer.material = offMaterial;
     }
 
+    void OnDisable()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
+    }
+
 
 }

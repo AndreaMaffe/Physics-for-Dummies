@@ -91,4 +91,9 @@ public class ShockSphere : InteractiveObject
     {
         AudioManager.instance.PlaySound(SoundType.Toc);
     }
+
+    void OnDisable()
+    {
+        ResetPosition();
+    }
 }

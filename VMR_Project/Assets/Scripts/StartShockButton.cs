@@ -56,4 +56,10 @@ public class StartShockButton : InteractiveObject
             }
         }
     }
+
+    void OnDisable()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
+    }
 }
