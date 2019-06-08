@@ -50,4 +50,9 @@ public class CannonController : InteractiveObject
     {
         MoveDown();
     }
+
+    public override void OnBackToMainMenu()
+    {
+        cannonBody.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+    }
 }
