@@ -47,7 +47,7 @@ public class Incline : InteractiveObject
         if (focused)
             DecreaseRotation();
     }
-    public override void OnBackToMainMenu()
+    public void OnDisable()
     {
         rotation = 50f;
         transform.rotation = Quaternion.Euler(0, 0, rotation);

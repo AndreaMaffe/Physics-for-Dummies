@@ -37,7 +37,6 @@ public class InitializeButton : InteractiveObject
         {
             isOn = false;
             meshRenderer.material = offMaterial;
-            cube.CreateCube();
             cube.GetComponent<Rigidbody>().isKinematic = true;
         } else
         {
@@ -46,10 +45,17 @@ public class InitializeButton : InteractiveObject
             cube.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
-    public override void OnBackToMainMenu()
+    public void OnDisable()
     {
         isOn = false;
         meshRenderer.material = offMaterial;
+    }
+    public void SetOff()
+    {
+        isOn = false;
+        isOn = false;
+        meshRenderer.material = offMaterial;
+        cube.GetComponent<Rigidbody>().isKinematic = true;
     }
 }
 
