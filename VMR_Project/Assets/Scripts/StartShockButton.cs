@@ -27,14 +27,13 @@ public class StartShockButton : InteractiveObject
     {
     }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            OnClick(); 
-    }
 
     public override void OnClick()
     {
+<<<<<<< Updated upstream
+=======
+        //if (focused)
+>>>>>>> Stashed changes
         {
             animator.SetTrigger("Pressed");
             AudioManager.instance.PlaySound(SoundType.Pop);

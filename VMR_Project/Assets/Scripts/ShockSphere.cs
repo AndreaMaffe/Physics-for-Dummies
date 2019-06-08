@@ -83,13 +83,14 @@ public class ShockSphere : InteractiveObject
         rb.AddForce(transform.forward * 100, ForceMode.Impulse);
     }
 
-    public override void OnClick()
-    {
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         AudioManager.instance.PlaySound(SoundType.Toc);
+        vector.gameObject.SetActive(!vector.enabled);
+    }
+
+    public override void OnClick()
+    {
     }
 
     void OnDisable()
