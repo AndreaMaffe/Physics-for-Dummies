@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip toc;
 
     public AudioClip[] lessons;
+    public AudioClip test;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(test);
     }
 
     public void PlaySound(SoundType soundType)

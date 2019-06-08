@@ -581,12 +581,6 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666aac693eeca0149beac28b9f95bee5, type: 3}
---- !u!1 &220061117 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2593420178938619591, guid: 7c4eaec5a9d2a4ce9986ee81a07cc489,
-    type: 3}
-  m_PrefabInstance: {fileID: 310622094}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &237683959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4174,7 +4168,7 @@ MonoBehaviour:
   - {fileID: 658583545}
   - {fileID: 1739464427}
   - {fileID: 2022250461}
-  - {fileID: 220061117}
+  - {fileID: 507170437}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -7601,6 +7595,11 @@ PrefabInstance:
       propertyPath: toc
       value: 
       objectReference: {fileID: 8300000, guid: 7d92d987c160794438385f8a65c37eca, type: 3}
+    - target: {fileID: 4651569738082350118, guid: c0ee172d9797c8040a2c9099d50e44f3,
+        type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 8300000, guid: a8e208ef2636f584f8eecfb907e266f0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0ee172d9797c8040a2c9099d50e44f3, type: 3}
 --- !u!114 &6335362455846949554
