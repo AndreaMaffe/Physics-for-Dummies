@@ -76,4 +76,12 @@ public class FrictionBar : MonoBehaviour
         }
         meshRenderer.material = materials[index];
     }
+
+    public void Reset()
+    {
+        actualSize = 0;
+        index = 0;
+        frictionBar.SetActive(false);
+        meshRenderer.material = materials[index];
+    }
 }

@@ -46,5 +46,10 @@ public class InitializeButton : InteractiveObject
             cube.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
+    public override void OnBackToMainMenu()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
+    }
 }
 

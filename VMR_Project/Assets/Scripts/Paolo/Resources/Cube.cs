@@ -13,7 +13,9 @@ public class Cube : InteractiveObject
     private Rigidbody rb;
     private float dynFrictionForce;
     private float factorScale;
+    private float startMass;
     private Vector3 startPosition;
+    private Vector3 startScale;
     private Quaternion startRotation;
 
     // Start is called before the first frame update
@@ -23,11 +25,13 @@ public class Cube : InteractiveObject
         factorScale = (float)0.02;
         startPosition = this.transform.localPosition;
         startRotation = this.transform.localRotation;
+        startScale = transform.localScale;
+        startMass = rb.mass;
 
         this.dyn.SetScale(0);
         this.vel.SetScale(0);
-        this.tanWeight.SetScale(this.gameObject.GetComponent<Rigidbody>().mass * Mathf.Sin(Mathf.PI / 4));
-        this.weight.SetScale(this.gameObject.GetComponent<Rigidbody>().mass);
+        this.tanWeight.SetScale(rb.mass * Mathf.Sin(Mathf.PI / 4) * factorScale);
+        this.weight.SetScale(rb.mass * factorScale);
     }
 
     // Update is called once per frame
@@ -105,6 +109,18 @@ public class Cube : InteractiveObject
             this.transform.position -= new Vector3(-0.02f, 0.01f, 0);
             startPosition -= new Vector3(-0.02f, 0.01f, 0);
         }
+    }
+    public override void OnBackToMainMenu()
+    {
+        rb.mass = startMass;
+        transform.localScale = startScale;
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+        vel.SetScale(0);
+        dyn.SetScale(0);
+        tanWeight.SetScale(rb.mass * Mathf.Sin(Mathf.PI / 4) * factorScale);
+        weight.SetScale(rb.mass * factorScale);
+
     }
 }
 
