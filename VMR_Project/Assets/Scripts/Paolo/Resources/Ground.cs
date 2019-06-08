@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
+    public Cube cube;
+    public InitializeButton initializeButton;
 
     private GameObject explosion;
     // Start is called before the first frame update
@@ -20,7 +22,8 @@ public class Ground : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.SetActive(false);
         Instantiate(explosion, collision.transform.position, Quaternion.identity);
+        cube.ReturnToInitialPosition();
+        initializeButton.SetOff();
     }
 }

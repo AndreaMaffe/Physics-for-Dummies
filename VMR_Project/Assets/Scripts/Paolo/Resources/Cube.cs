@@ -66,19 +66,6 @@ public class Cube : InteractiveObject
         dyn.SetScale(scale * (factorScale * (float)3.5));
     }
 
-    // Move the cube again on top of the ramp
-    public void CreateCube()
-    {
-        if (!this.gameObject.activeSelf)
-            this.gameObject.SetActive(true);
-        this.transform.localPosition = startPosition;
-        this.transform.localRotation = startRotation;
-        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-        this.vel.SetScale(0);
-        this.dyn.SetScale(0);
-    }
-
     // Vector inclination correction
     public void WeightAngleCorrection(Vector vector, Quaternion rotation)
     {
@@ -110,7 +97,7 @@ public class Cube : InteractiveObject
             startPosition -= new Vector3(-0.02f, 0.01f, 0);
         }
     }
-    public override void OnBackToMainMenu()
+    public void OnDisable()
     {
         rb.mass = startMass;
         transform.localScale = startScale;
@@ -120,7 +107,17 @@ public class Cube : InteractiveObject
         dyn.SetScale(0);
         tanWeight.SetScale(rb.mass * Mathf.Sin(Mathf.PI / 4) * factorScale);
         weight.SetScale(rb.mass * factorScale);
-
+    }
+    public void ReturnToInitialPosition()
+    {
+        transform.localPosition = startPosition;
+        transform.localRotation = startRotation;
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
+        vel.SetScale(0);
+        dyn.SetScale(0);
+        tanWeight.SetScale((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
+        weight.SetScale(rb.mass * factorScale);
     }
 }
 
