@@ -56,6 +56,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlayLesson(int lessonIndex)
     {
-        audioSource.PlayOneShot(lessons[lessonIndex], 1f);
+        //audioSource.PlayOneShot(lessons[lessonIndex], 1f);
     }
 }

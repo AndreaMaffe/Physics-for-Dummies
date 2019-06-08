@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonController : InteractiveObject
 {
-    public float angularSpeed = 20f;
+    public float angularSpeed = 30f;
     public float cannonPower = 60f;
     public GameObject cannonBody;
     public Transform cannonSphere;
