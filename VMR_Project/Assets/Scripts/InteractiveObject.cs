@@ -42,16 +42,9 @@ public abstract class InteractiveObject : MonoBehaviour
             else if (coord.y < -0.3f)
                 OnArrowDown();
         }
-
-        if (OVRInput.Get(OVRInput.Button.Back) || Input.GetKeyDown(KeyCode.B))
-            OnBackToMainMenu();
     }
 
     public abstract void OnClick();
     public abstract void OnArrowUp();
     public abstract void OnArrowDown();
-    public virtual void OnBackToMainMenu()
-    {
-    
-    }
 }

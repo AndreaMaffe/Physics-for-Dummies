@@ -121,7 +121,7 @@ public class InteractivePlanet : InteractiveObject
         }
     }
 
-    public override void OnBackToMainMenu()
+    private void OnDisable()
     {
         Explode();
     }
