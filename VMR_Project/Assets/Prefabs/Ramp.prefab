@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 5102317328979925259}
   - component: {fileID: 3346621878758914032}
   - component: {fileID: 2782210779929297775}
-  - component: {fileID: 8389810139577368070}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -197,18 +196,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &8389810139577368070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206925579395456053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15882bcef77212f4ea4f3031452be338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &4177466557294317241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,6 +229,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7164235753713117094}
     m_Modifications:
+    - target: {fileID: 881544371407877037, guid: c2d8c7be11dda8044bce24308c9f68b6,
+        type: 3}
+      propertyPath: ramp
+      value: 
+      objectReference: {fileID: 4391396430178392434}
+    - target: {fileID: 881544371407877037, guid: c2d8c7be11dda8044bce24308c9f68b6,
+        type: 3}
+      propertyPath: incline
+      value: 
+      objectReference: {fileID: 6802763075961232129}
     - target: {fileID: 8203398221386123285, guid: c2d8c7be11dda8044bce24308c9f68b6,
         type: 3}
       propertyPath: m_Name
@@ -302,16 +299,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 881544371407877037, guid: c2d8c7be11dda8044bce24308c9f68b6,
-        type: 3}
-      propertyPath: ramp
-      value: 
-      objectReference: {fileID: 4391396430178392434}
-    - target: {fileID: 881544371407877037, guid: c2d8c7be11dda8044bce24308c9f68b6,
-        type: 3}
-      propertyPath: incline
-      value: 
-      objectReference: {fileID: 6802763075961232129}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2d8c7be11dda8044bce24308c9f68b6, type: 3}
 --- !u!114 &5991192824837325803 stripped
@@ -333,10 +320,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5379142141504234164}
     m_Modifications:
-    - target: {fileID: 100000, guid: 99935ebc959d0944f9b2b09f24420e2d, type: 3}
-      propertyPath: m_Name
-      value: Incline
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 99935ebc959d0944f9b2b09f24420e2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -380,6 +363,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 99935ebc959d0944f9b2b09f24420e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 99935ebc959d0944f9b2b09f24420e2d, type: 3}
+      propertyPath: m_Name
+      value: Incline
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 99935ebc959d0944f9b2b09f24420e2d, type: 3}
       propertyPath: m_Materials.Array.data[0]

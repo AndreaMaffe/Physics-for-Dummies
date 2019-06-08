@@ -146,6 +146,8 @@ MonoBehaviour:
   cannonSphere: {fileID: 5549970609821585231}
   shootingPoint: {fileID: 5549970609744803836}
   bullet: {fileID: 4778397444102229558, guid: 32518fdb0275daf4ca36f5d7f2d3375e, type: 3}
+  puffAnimation: {fileID: 3498861399197522943, guid: cf1b4b183e7de8843a49e0851d9791d4,
+    type: 3}
 --- !u!114 &105242610210160482
 MonoBehaviour:
   m_ObjectHideFlags: 0

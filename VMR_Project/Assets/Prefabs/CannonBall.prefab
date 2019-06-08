@@ -95,7 +95,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.25
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -108,6 +108,15 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -166,6 +175,8 @@ MonoBehaviour:
   velocityX: {fileID: 3108554474698127242}
   velocityY: {fileID: 6277660634574362782}
   gravity: {fileID: 5151051891085141531}
+  puffAnimation: {fileID: 3498861399197522943, guid: cf1b4b183e7de8843a49e0851d9791d4,
+    type: 3}
 --- !u!1 &7573305742386890581
 GameObject:
   m_ObjectHideFlags: 0

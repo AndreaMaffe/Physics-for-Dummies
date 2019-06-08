@@ -14,7 +14,7 @@ public class Ramp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(this);
+
     }
 
     public Incline GetIncline() => this.incline;

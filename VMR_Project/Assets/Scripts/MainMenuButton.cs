@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenButton : InteractiveObject
+public class MainMenuButton : InteractiveObject
 {
     public Animator animator;
     public int index;
