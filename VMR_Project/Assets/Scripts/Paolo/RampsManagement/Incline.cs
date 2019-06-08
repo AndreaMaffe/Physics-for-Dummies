@@ -21,7 +21,7 @@ public class Incline : InteractiveObject
     }
     void DecreaseRotation()
     {
-        if (rotation > 40f)
+        if (rotation > 30f)
         {
             weightRotation += 5f;
             rotation -= 5f;

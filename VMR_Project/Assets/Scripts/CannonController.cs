@@ -10,6 +10,7 @@ public class CannonController : InteractiveObject
     public Transform cannonSphere;
     public Transform shootingPoint;
     public GameObject bullet;
+    public GameObject puffAnimation;
 
     void MoveUp()
     {
@@ -27,6 +28,7 @@ public class CannonController : InteractiveObject
 
     void Fire()
     {
+        GameObject puff = Instantiate(puffAnimation, shootingPoint.position, transform.rotation);
         GameObject bulletObject = Instantiate(bullet, shootingPoint.position, transform.rotation);
         Rigidbody bulletRb = bulletObject.GetComponent<Rigidbody>();
         bulletRb.AddForce(shootingPoint.forward * cannonPower, ForceMode.VelocityChange);

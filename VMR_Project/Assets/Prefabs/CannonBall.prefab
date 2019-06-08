@@ -166,6 +166,8 @@ MonoBehaviour:
   velocityX: {fileID: 3108554474698127242}
   velocityY: {fileID: 6277660634574362782}
   gravity: {fileID: 5151051891085141531}
+  puffAnimation: {fileID: 3498861399197522943, guid: cf1b4b183e7de8843a49e0851d9791d4,
+    type: 3}
 --- !u!1 &7573305742386890581
 GameObject:
   m_ObjectHideFlags: 0
