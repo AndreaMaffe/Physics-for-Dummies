@@ -52,4 +52,10 @@ public class FrictionButton : InteractiveObject
 
         frictionBar.ChangeBarColorLength(true, false);
     }
+    public override void OnBackToMainMenu()
+    {
+        isOn = 0;
+        incline.GetComponent<BoxCollider>().material = physicMaterials[isOn];
+        frictionBar.Reset();
+    }
 }
