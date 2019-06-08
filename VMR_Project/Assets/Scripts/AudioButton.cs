@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioButton : InteractiveObject
 {
     public Animator animator;
+    public int lessonIndex;
 
     public override void OnFocusEnter()
     {
@@ -30,5 +31,6 @@ public class AudioButton : InteractiveObject
 
     public override void OnClick()
     {
+        AudioManager.instance.PlayLesson(lessonIndex);
     }
 }

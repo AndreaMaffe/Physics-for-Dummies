@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip hardPop;
     public AudioClip toc;
 
+    public AudioClip[] lessons;
+
     private void Awake()
     {
         if (instance == null)
@@ -50,5 +52,10 @@ public class AudioManager : MonoBehaviour
             case SoundType.Toc: audioSource.PlayOneShot(toc, 1f);
                 break;
         }
+    }
+
+    public void PlayLesson(int lessonIndex)
+    {
+        audioSource.PlayOneShot(lessons[lessonIndex], 1f);
     }
 }
