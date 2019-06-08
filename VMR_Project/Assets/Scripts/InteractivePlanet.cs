@@ -123,6 +123,11 @@ public class InteractivePlanet : InteractiveObject
 
     private void OnDisable()
     {
-        Explode();
+        this.transform.position = originalPosition;
+        this.transform.rotation = Quaternion.identity;
+        trailRenderer.Clear();
+        rb.isKinematic = true;
+        interactableButton.SetActive(true);
+        blueVector.SetActive(false);
     }
 }

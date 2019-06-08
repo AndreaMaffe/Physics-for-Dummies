@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(test);
+        //audioSource.PlayOneShot(test);
     }
 
     public void PlaySound(SoundType soundType)
