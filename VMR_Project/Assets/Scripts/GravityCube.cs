@@ -54,4 +54,9 @@ public class GravityCube : MonoBehaviour
             cube.transform.position = new Vector3(cube.transform.position.x, 0.5f, cube.transform.position.z);
         }
     }
+
+    private void OnDisable()
+    {
+        cube.transform.position = new Vector3(cube.transform.position.x, 0.6f, cube.transform.position.z);
+    }
 }

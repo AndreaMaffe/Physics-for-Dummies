@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource { get; set; }
     public AudioClip ding;
     public AudioClip pop;
     public AudioClip boom;
@@ -58,6 +58,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayLesson(int lessonIndex)
     {
-        //audioSource.PlayOneShot(lessons[lessonIndex], 1f);
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+        else 
+            audioSource.PlayOneShot(lessons[lessonIndex], 1f);
     }
 }

@@ -120,4 +120,9 @@ public class InteractivePlanet : InteractiveObject
                 rb.mass = 10f;
         }
     }
+
+    public override void OnBackToMainMenu()
+    {
+        Explode();
+    }
 }

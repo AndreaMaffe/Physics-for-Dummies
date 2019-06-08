@@ -43,7 +43,7 @@ public abstract class InteractiveObject : MonoBehaviour
                 OnArrowDown();
         }
 
-        if (OVRInput.Get(OVRInput.Button.Back))
+        if (OVRInput.Get(OVRInput.Button.Back) || Input.GetKeyDown(KeyCode.B))
             OnBackToMainMenu();
     }
 

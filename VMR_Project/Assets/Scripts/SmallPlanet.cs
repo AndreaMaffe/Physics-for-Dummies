@@ -74,4 +74,9 @@ public class SmallPlanet : MonoBehaviour
         rb.isKinematic = false;
         rb.AddForce(Vector3.up * 400, ForceMode.Impulse);
     }
+
+    private void OnDisable()
+    {
+        ResetPosition();
+    }
 }

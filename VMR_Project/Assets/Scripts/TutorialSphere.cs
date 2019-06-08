@@ -41,4 +41,10 @@ public class TutorialSphere : InteractiveObject
     public override void OnClick()
     {
     }
+
+    private void OnDisable()
+    {
+        scale = 1f;
+        this.transform.localScale = Vector3.one;
+    }
 }
