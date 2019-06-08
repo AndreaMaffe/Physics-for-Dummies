@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] experiences;
     public Sprite[] experiencesSprites;
 
+    private bool busy;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         title.gameObject.SetActive(true);
         subtitle.gameObject.SetActive(true);
         mainMenuObjects.SetActive(false);
+        busy = false;
     }
 
     void Update()
@@ -37,7 +39,11 @@ public class GameManager : MonoBehaviour
                 {
                     if (OVRInput.Get(OVRInput.Button.Any) || Input.GetKeyDown(KeyCode.N))
                     {
-                        StartCoroutine(GoToMainMenu());
+                        if (!busy)
+                        {
+                            busy = true;
+                            StartCoroutine(GoToMainMenu());
+                        }
                     }
                 }
 
@@ -82,6 +88,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlaySound(SoundType.HardPop);
         gameStatus = GameStatus.OnMainMenu;
         mainMenuObjects.SetActive(true);
+        busy = false;
     }
 
     //MainMenu --> Experience

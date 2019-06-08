@@ -60,4 +60,10 @@ public class StartThreePlanetsButton : InteractiveObject
         isOn = false;
         meshRenderer.material = offMaterial;
     }
+
+    void OnDisable()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
+    }
 }

@@ -27,18 +27,14 @@ public class StartShockButton : InteractiveObject
     {
     }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            OnClick(); 
-    }
 
     public override void OnClick()
     {
-        if (focused)
+        //if (focused)
         {
             animator.SetTrigger("Pressed");
             AudioManager.instance.PlaySound(SoundType.Pop);
+            Debug.Log("PRESSED");
 
             if (isOn)
             {
@@ -55,5 +51,11 @@ public class StartShockButton : InteractiveObject
                 shockSphere1.StartAddForce();
             }
         }
+    }
+
+    void OnDisable()
+    {
+        isOn = false;
+        meshRenderer.material = offMaterial;
     }
 }

@@ -120,4 +120,14 @@ public class InteractivePlanet : InteractiveObject
                 rb.mass = 10f;
         }
     }
+
+    private void OnDisable()
+    {
+        this.transform.position = originalPosition;
+        this.transform.rotation = Quaternion.identity;
+        trailRenderer.Clear();
+        rb.isKinematic = true;
+        interactableButton.SetActive(true);
+        blueVector.SetActive(false);
+    }
 }

@@ -80,15 +80,20 @@ public class ShockSphere : InteractiveObject
     public void StartAddForce()
     {
         isMoving = true;
-        rb.AddForce(transform.forward * 100, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 130, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.instance.PlaySound(SoundType.Toc);
     }
 
     public override void OnClick()
     {
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnDisable()
     {
-        AudioManager.instance.PlaySound(SoundType.Toc);
+        ResetPosition();
     }
 }

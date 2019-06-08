@@ -12,4 +12,9 @@ public class TutorialCube : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 1.6f, transform.position.z);
         }
     }
+
+    private void OnDisable()
+    {
+        transform.position = new Vector3(transform.position.x, 1.6f, transform.position.z);
+    }
 }
