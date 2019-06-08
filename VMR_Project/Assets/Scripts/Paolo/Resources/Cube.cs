@@ -9,6 +9,7 @@ public class Cube : InteractiveObject
     public Vector vel;
     public Vector tanWeight;
     public Incline incline;
+    public GameObject interactableObject;
 
     private Rigidbody rb;
     private float dynFrictionForce;
@@ -49,13 +50,16 @@ public class Cube : InteractiveObject
         if (rb.velocity.magnitude > 0)
         {
             vel.SetScale(rb.velocity.magnitude * (factorScale * 5));
+            interactableObject.SetActive(false);
         } else
         {
             vel.SetScale(0);
+            interactableObject.SetActive(true);
         }
             
         weight.SetScale((rb.mass * Physics.gravity.magnitude) * factorScale);
         tanWeight.SetScale((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
+
     }
 
     // Friction force computation

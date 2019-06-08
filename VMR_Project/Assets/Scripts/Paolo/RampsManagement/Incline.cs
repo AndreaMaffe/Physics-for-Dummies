@@ -5,9 +5,22 @@ using UnityEngine;
 public class Incline : InteractiveObject
 {
     public Cube cube;
+    public GameObject interactiveObject;
 
     float rotation = 50f;
     float weightRotation = 225f;
+
+    private void FixedUpdate()
+    {
+        if(cube.GetComponent<Rigidbody>().velocity.magnitude > 0)
+        {
+            interactiveObject.SetActive(false);
+        }
+        else
+        {
+            interactiveObject.SetActive(true);
+        }
+    }
 
     void IncreaseRotation()
     {
