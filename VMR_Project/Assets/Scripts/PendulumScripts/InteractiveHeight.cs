@@ -22,7 +22,7 @@ public class InteractiveHeight : InteractiveObject
 
     public override void OnArrowDown()
     {
-        if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset)
+        if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset && focused)
         {
             if (ropeLength < maxLength)
             {
@@ -47,7 +47,7 @@ public class InteractiveHeight : InteractiveObject
 
     public override void OnArrowUp()
     {
-        if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset)
+        if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset && focused)
         {
             if (ropeLength > minLength)
             {

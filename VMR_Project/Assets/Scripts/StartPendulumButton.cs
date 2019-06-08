@@ -34,7 +34,7 @@ public class StartPendulumButton : InteractiveObject
 
     public override void OnClick()
     {
-        //if (focused)
+        if (focused)
         {
             animator.SetTrigger("Pressed");
             AudioManager.instance.PlaySound(SoundType.Pop);

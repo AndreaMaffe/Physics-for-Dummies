@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class PendulumSupport : MonoBehaviour
 {
-    private float initialMass;
-    private float initialRopeLength;
-
     // These values store the pendulum's initial state.
     private Quaternion initialRopeRotation;
-    private Vector3 initialRopeScale;
     private Quaternion initialPendulumBodyRotation;
     private Vector3 initialPendulumBodyPosition;
-    private Vector3 initialPendulumBodyScale;
     public float pendulumBodyColliderRadius;
-    private Vector3 initialConnectedAnchor;
     private float initialWeightScale;
 
     // Height at which the pendulum body starts swinging.
@@ -37,21 +31,16 @@ public class PendulumSupport : MonoBehaviour
     void Start()
     {
         initialRopeRotation = rope.transform.rotation;
-        initialRopeScale = rope.transform.localScale;
 
         initialPendulumBodyRotation = pendulumBody.transform.rotation;
         initialPendulumBodyPosition = pendulumBody.transform.position;
-        initialPendulumBodyScale = pendulumBody.transform.localScale;
-        initialConnectedAnchor = pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor;
 
-        initialMass = pendulumBody.GetComponent<Rigidbody>().mass;
-        initialRopeLength = rope.transform.localScale.y;
         initialWeightScale = 2;
         weight.SetScale(initialWeightScale);
 
         startingPendulumHeight = pendulumBody.transform.position.y;
 
-        // Adjusting the SphereCollider radius, so that it remains constant with the pendulumBody scaling.
+        // Adjust the SphereCollider radius, so that it remains constant with the pendulumBody scaling.
         pendulumBodyColliderRadius = pendulumBody.GetComponent<SphereCollider>().radius * pendulumBody.transform.localScale.x;
     }
 
@@ -66,16 +55,8 @@ public class PendulumSupport : MonoBehaviour
 
         pendulumBody.transform.position = new Vector3(initialPendulumBodyPosition.x, startingPendulumHeight, initialPendulumBodyPosition.z);
         pendulumBody.transform.rotation = initialPendulumBodyRotation;
-        //pendulumBody.transform.localScale = initialPendulumBodyScale;
-        //pendulumBody.GetComponent<ConfigurableJoint>().connectedAnchor = initialConnectedAnchor;
-        //pendulumBody.GetComponent<InteractiveBody>().mass = initialMass;
-        //pendulumBody.GetComponent<InteractiveBody>().weightScale = initialWeightScale;
-        //pendulumBody.GetComponent<SphereCollider>().radius = pendulumBodyColliderRadius;
-        //weight.SetScale(initialWeightScale);
 
         rope.transform.rotation = initialRopeRotation;
-        //rope.transform.localScale = initialRopeScale;
-        //height.GetComponent<InteractiveHeight>().ropeLength = initialRopeLength;
     }
 
     /**
