@@ -45,6 +45,7 @@ public class MovableObject : InteractiveObject
     {       
         if (dragged)
         {
+            AudioManager.instance.PlaySound(SoundType.Pop);
             Debug.Log("Released!");
             dragged = false;
             rb.isKinematic = false;
@@ -54,6 +55,7 @@ public class MovableObject : InteractiveObject
         {
             if (focused)
             {
+                AudioManager.instance.PlaySound(SoundType.Pop);
                 Debug.Log("Dragged!");
                 dragged = true;
                 baseAngle = GetControllerRotationX();
@@ -91,5 +93,10 @@ public class MovableObject : InteractiveObject
         }
 
         return x;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.instance.PlaySound(SoundType.Toc);
     }
 }

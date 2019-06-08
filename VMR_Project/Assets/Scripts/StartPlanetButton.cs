@@ -13,7 +13,6 @@ public class StartPlanetButton : InteractiveObject
     private bool isOn;
     private MeshRenderer meshRenderer;
 
-
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
