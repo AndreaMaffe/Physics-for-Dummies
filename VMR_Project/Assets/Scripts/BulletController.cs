@@ -52,7 +52,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             GetComponent<Rigidbody>().isKinematic = true;
-            GameObject puff = Instantiate(puffAnimation, transform.position, transform.rotation);
+            GameObject puff = Instantiate(puffAnimation, transform.position, transform.rotation, transform);
             AudioManager.instance.PlaySound(SoundType.Boom);
             bullet.SetActive(false);
             velocity.SetActive(false);
@@ -69,6 +69,11 @@ public class BulletController : MonoBehaviour
         yield return new WaitUntil(() => trail.positionCount==0);
         Destroy(gameObject);
         yield return null;
+    }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
     }
 
 }

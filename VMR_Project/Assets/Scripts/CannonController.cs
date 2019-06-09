@@ -28,12 +28,11 @@ public class CannonController : InteractiveObject
 
     void Fire()
     {
-        GameObject puff = Instantiate(puffAnimation, shootingPoint.position, transform.rotation);
-        GameObject bulletObject = Instantiate(bullet, shootingPoint.position, transform.rotation);
+        GameObject puff = Instantiate(puffAnimation, shootingPoint.position, transform.rotation, transform);
+        GameObject bulletObject = Instantiate(bullet, shootingPoint.position, transform.rotation, transform);
         Rigidbody bulletRb = bulletObject.GetComponent<Rigidbody>();
         bulletRb.AddForce(shootingPoint.forward * cannonPower, ForceMode.VelocityChange);
         AudioManager.instance.PlaySound(SoundType.Boom);
-
     }
 
     public override void OnClick()
