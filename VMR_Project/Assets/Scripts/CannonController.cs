@@ -4,25 +4,51 @@ using UnityEngine;
 
 public class CannonController : InteractiveObject
 {
-    public float angularSpeed = 30f;
-    public float cannonPower = 60f;
+    public float angularSpeed = 20f;
+    public float cannonPower = 18f;
     public GameObject cannonBody;
     public Transform cannonSphere;
     public Transform shootingPoint;
     public GameObject bullet;
     public GameObject puffAnimation;
 
+    private float angle = 0f;
+
+    public float GetAngle()
+    {
+        return angle;
+    }
+
     void MoveUp()
     {
-        if ((cannonBody.transform.localRotation.eulerAngles.x <= 360f && cannonBody.transform.localRotation.eulerAngles.x >= 300f) || (cannonBody.transform.localRotation.eulerAngles.x >= 0f && cannonBody.transform.localRotation.eulerAngles.x <= 46f)) {
-            cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), -angularSpeed * Time.deltaTime);
+        if (cannonBody.transform.localRotation.eulerAngles.x > 290f)
+        {
+            angle = 360f - cannonBody.transform.localRotation.eulerAngles.x;
+        }
+        else
+        {
+            angle = -cannonBody.transform.localRotation.eulerAngles.x;
+        }
+        print(angle);
+        if (angle<60f) {
+            cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), -angularSpeed);
         }
     }
 
     void MoveDown()
     {
-        if ((cannonBody.transform.localRotation.eulerAngles.x >= -1f && cannonBody.transform.localRotation.eulerAngles.x <= 45f) || (transform.localRotation.eulerAngles.x >= 299f && transform.localRotation.eulerAngles.x <= 360f)) {
-            cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), angularSpeed * Time.deltaTime);
+        if (cannonBody.transform.localRotation.eulerAngles.x > 290f)
+        {
+            angle = 360f - cannonBody.transform.localRotation.eulerAngles.x;
+        }
+        else
+        {
+            angle = -cannonBody.transform.localRotation.eulerAngles.x;
+        }
+        print(angle);
+        if (angle>0f) {
+            cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), angularSpeed);
+
         }
     }
 
@@ -53,5 +79,6 @@ public class CannonController : InteractiveObject
     private void OnDisable()
     {
         cannonBody.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        angle = 0f;
     }
 }

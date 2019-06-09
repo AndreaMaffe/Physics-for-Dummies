@@ -36,4 +36,9 @@ public class PoffAnimation : MonoBehaviour
         if (timer >= 255)
             Destroy(this.gameObject);
     }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
 }
