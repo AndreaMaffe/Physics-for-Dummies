@@ -29,7 +29,6 @@ public class CannonController : InteractiveObject
         {
             angle = -cannonBody.transform.localRotation.eulerAngles.x;
         }
-        print(angle);
         if (angle<60f) {
             cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), -angularSpeed);
         }
@@ -45,7 +44,6 @@ public class CannonController : InteractiveObject
         {
             angle = -cannonBody.transform.localRotation.eulerAngles.x;
         }
-        print(angle);
         if (angle>0f) {
             cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), angularSpeed);
 
