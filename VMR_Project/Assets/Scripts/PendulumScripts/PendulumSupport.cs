@@ -12,7 +12,7 @@ public class PendulumSupport : MonoBehaviour
     private float initialWeightScale;
 
     // Height at which the pendulum body starts swinging.
-    private float startingPendulumHeight;
+    public float startingPendulumHeight;
 
     // GameObjects whose parameters are needed.
     public GameObject pendulumSupport;
@@ -25,7 +25,7 @@ public class PendulumSupport : MonoBehaviour
     public bool isPendulumReset = true;
 
     // This value modifies the value of the torque applied to the rope when the pendulum movement is started.
-    private float appliedForceAmount = 4f;
+    private float appliedForceAmount = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +37,6 @@ public class PendulumSupport : MonoBehaviour
 
         initialWeightScale = 2;
         weight.SetScale(initialWeightScale);
-
-        startingPendulumHeight = pendulumBody.transform.position.y;
 
         // Adjust the SphereCollider radius, so that it remains constant with the pendulumBody scaling.
         pendulumBodyColliderRadius = pendulumBody.GetComponent<SphereCollider>().radius * pendulumBody.transform.localScale.x;

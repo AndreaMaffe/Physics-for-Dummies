@@ -3309,22 +3309,22 @@ PrefabInstance:
     - target: {fileID: 1910586254671905877, guid: 3a440acb2306d6543950e3465f7f8806,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.11999867
+      value: -0.12000046
       objectReference: {fileID: 0}
     - target: {fileID: 1910586254671905877, guid: 3a440acb2306d6543950e3465f7f8806,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -9.886035e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1910586254641252527, guid: 3a440acb2306d6543950e3465f7f8806,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
+      value: -0.0000000017300565
       objectReference: {fileID: 0}
     - target: {fileID: 626289409517594246, guid: 3a440acb2306d6543950e3465f7f8806,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910586254641252527, guid: 3a440acb2306d6543950e3465f7f8806,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1910586253167929614, guid: 3a440acb2306d6543950e3465f7f8806,
         type: 3}
