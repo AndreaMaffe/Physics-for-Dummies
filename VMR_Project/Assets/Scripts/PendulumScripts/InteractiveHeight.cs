@@ -20,6 +20,11 @@ public class InteractiveHeight : InteractiveObject
     public GameObject pendulumBody;
     public PendulumSupport pendulumSupport;
 
+    void Start()
+    {
+        ropeLength = rope.transform.localScale.y;
+    }
+
     public override void OnArrowDown()
     {
         if (pendulumSupport.GetComponent<PendulumSupport>().isPendulumReset && focused)
@@ -78,12 +83,5 @@ public class InteractiveHeight : InteractiveObject
     public override void OnClick()
     {
         // Not needed.
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        ropeLength = rope.transform.localScale.y;
     }
 }
