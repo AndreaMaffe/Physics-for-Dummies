@@ -10,9 +10,9 @@ public class SoundTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == pendulumBodyCentre && !firstCollisionHappened)
+        if(other.gameObject == pendulumBodyCentre && firstCollisionHappened)
         {
-            AudioManager.instance.PlaySound(SoundType.Ding);
+            AudioManager.instance.PlaySound(SoundType.Tic);
         }
 
         firstCollisionHappened = true;

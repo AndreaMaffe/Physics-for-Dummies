@@ -31,11 +31,11 @@ public class Cube : InteractiveObject
 
         this.dyn.SetScale(0);
         this.vel.SetScale(0);
-        this.tanWeight.SetScale(rb.mass * Mathf.Sin(Mathf.PI / 4) * factorScale);
+        this.tanWeight.SetScale(rb.mass * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)) * factorScale);
         this.weight.SetScale(rb.mass * factorScale);
     }
 
-    // Update is called once per frame
+    // Fixedupdated, called oce every fixed time instance
     void FixedUpdate()
     {
         dynFrictionForce = this.DynFrictionForceComputation(incline.GetComponent<BoxCollider>().material.dynamicFriction, rb.mass, rb.velocity);
@@ -49,12 +49,10 @@ public class Cube : InteractiveObject
 
         if (rb.velocity.magnitude > 0)
         {
-            vel.SetScale(rb.velocity.magnitude * (factorScale * 5));
-            interactableObject.SetActive(false);
+            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)5.5));
         } else
         {
             vel.SetScale(0);
-            interactableObject.SetActive(true);
         }
             
         weight.SetScale((rb.mass * Physics.gravity.magnitude) * factorScale);
@@ -107,8 +105,9 @@ public class Cube : InteractiveObject
         transform.rotation = startRotation;
         vel.SetScale(0);
         dyn.SetScale(0);
-        tanWeight.SetScale(rb.mass * Mathf.Sin(Mathf.PI / 4) * factorScale);
+        tanWeight.SetScale(rb.mass * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)) * factorScale);
         weight.SetScale(rb.mass * factorScale);
+        interactableObject.SetActive(true);
     }
     public void ReturnToInitialPosition()
     {
@@ -120,6 +119,7 @@ public class Cube : InteractiveObject
         dyn.SetScale(0);
         tanWeight.SetScale((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
         weight.SetScale(rb.mass * factorScale);
+        interactableObject.SetActive(true);
     }
 }
 

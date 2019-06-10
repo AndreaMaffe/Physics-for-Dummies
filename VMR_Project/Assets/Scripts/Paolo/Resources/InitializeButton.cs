@@ -40,12 +40,17 @@ public class InitializeButton : InteractiveObject
                 isOn = false;
                 meshRenderer.material = offMaterial;
                 cube.GetComponent<Rigidbody>().isKinematic = true;
+                cube.ReturnToInitialPosition();
+                cube.interactableObject.SetActive(true);
+                incline.interactiveObject.SetActive(true);
             }
             else
             {
                 isOn = true;
                 meshRenderer.material = onMaterial;
                 cube.GetComponent<Rigidbody>().isKinematic = false;
+                cube.interactableObject.SetActive(false);
+                incline.interactiveObject.SetActive(false);
             }
         }
     }
@@ -60,6 +65,8 @@ public class InitializeButton : InteractiveObject
         isOn = false;
         meshRenderer.material = offMaterial;
         cube.GetComponent<Rigidbody>().isKinematic = true;
+        cube.interactableObject.SetActive(true);
+        incline.interactiveObject.SetActive(true);
     }
 }
 

@@ -7,20 +7,8 @@ public class Incline : InteractiveObject
     public Cube cube;
     public GameObject interactiveObject;
 
-    float rotation = 50f;
+    float rotation = 55f;
     float weightRotation = 225f;
-
-    private void FixedUpdate()
-    {
-        if(cube.GetComponent<Rigidbody>().velocity.magnitude > 0)
-        {
-            interactiveObject.SetActive(false);
-        }
-        else
-        {
-            interactiveObject.SetActive(true);
-        }
-    }
 
     void IncreaseRotation()
     {
@@ -34,7 +22,7 @@ public class Incline : InteractiveObject
     }
     void DecreaseRotation()
     {
-        if (rotation > 20f)
+        if (rotation > 35f)
         {
             weightRotation += 5f;
             rotation -= 5f;
@@ -62,7 +50,8 @@ public class Incline : InteractiveObject
     }
     public void OnDisable()
     {
-        rotation = 50f;
+        rotation = 55f;
         transform.rotation = Quaternion.Euler(0, 0, rotation);
+        interactiveObject.SetActive(true);
     }
 }
