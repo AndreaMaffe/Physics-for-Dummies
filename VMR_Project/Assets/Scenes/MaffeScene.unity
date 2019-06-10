@@ -255,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &42346358
 Transform:
   m_ObjectHideFlags: 0
@@ -2667,7 +2667,7 @@ PrefabInstance:
     - target: {fileID: 1443721024365678446, guid: d8aaa9ca36a1e2044b442d7c808e2593,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1443721024365677713, guid: d8aaa9ca36a1e2044b442d7c808e2593,
         type: 3}
@@ -4501,7 +4501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096147371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 13}
+  m_LocalPosition: {x: 0, y: 3, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5456,8 +5456,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 206c4c2dc3a8bf94d950b6ed873fa55a, type: 3}
   - {fileID: 21300000, guid: bb8a55ddbd91e9a4aa3b1b843466cd35, type: 3}
   - {fileID: 21300000, guid: a45c58dd96d05a4488d4360fb1288513, type: 3}
-  - {fileID: 21300000, guid: 186a9e88a2f527347bfbc907147ae873, type: 3}
   - {fileID: 21300000, guid: cfb38285acb18284c93f1b9d40784514, type: 3}
+  - {fileID: 21300000, guid: 186a9e88a2f527347bfbc907147ae873, type: 3}
   - {fileID: 21300000, guid: 100a30e230bfc234398fe6cb65ab37ae, type: 3}
   - {fileID: 21300000, guid: fd79be50b9ac92449a0e5e68cbe4427e, type: 3}
   - {fileID: 21300000, guid: 6b78af56dfb1bfa4bb22e5adf3955f99, type: 3}
@@ -8796,7 +8796,7 @@ MonoBehaviour:
   planet: {fileID: 1815904805592956490}
   startButton: {fileID: 994250312}
   otherRb: {fileID: 1756251315}
-  amount: 400
+  amount: 360
 --- !u!114 &1815904806607739828
 MonoBehaviour:
   m_ObjectHideFlags: 0

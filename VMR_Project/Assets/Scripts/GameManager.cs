@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
                         if (Input.GetKeyDown("" + i))
                         {
                             GoToExperience(i);
+                            Destroy (this.gameObject);
                         }
                     }
                 }

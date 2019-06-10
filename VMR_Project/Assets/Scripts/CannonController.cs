@@ -61,17 +61,20 @@ public class CannonController : InteractiveObject
 
     public override void OnClick()
     {
-        Fire();
+        if(focused)
+            Fire();
     }
 
     public override void OnArrowUp()
     {
-        MoveUp();
+        if(focused)
+            MoveUp();
     }
 
     public override void OnArrowDown()
     {
-        MoveDown();
+        if(focused)
+            MoveDown();
     }
 
     private void OnDisable()
