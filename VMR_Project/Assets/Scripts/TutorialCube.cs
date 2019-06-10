@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TutorialCube : MonoBehaviour
 {
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y < 1.6f)

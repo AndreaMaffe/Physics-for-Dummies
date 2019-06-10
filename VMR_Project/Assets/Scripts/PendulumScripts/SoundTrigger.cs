@@ -6,11 +6,15 @@ public class SoundTrigger : MonoBehaviour
 {
     public GameObject pendulumBodyCentre;
 
+    private bool firstCollisionHappened;
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == pendulumBodyCentre)
+        if(other.gameObject == pendulumBodyCentre && !firstCollisionHappened)
         {
             AudioManager.instance.PlaySound(SoundType.Ding);
         }
+
+        firstCollisionHappened = true;
     }
 }

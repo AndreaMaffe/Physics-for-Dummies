@@ -8,7 +8,8 @@ public enum SoundType
     Pop,
     Boom,
     HardPop,
-    Toc
+    Toc,
+    Tic
 }
 
 public class AudioManager : MonoBehaviour
@@ -21,9 +22,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip boom;
     public AudioClip hardPop;
     public AudioClip toc;
+    public AudioClip tic;
 
     public AudioClip[] lessons;
-    public AudioClip test;
+    public AudioClip audioTest;
 
     private void Awake()
     {
@@ -36,7 +38,9 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        //audioSource.PlayOneShot(test);
+
+        if (audioTest != null)
+            audioSource.PlayOneShot(audioTest);
     }
 
     public void PlaySound(SoundType soundType)
@@ -53,6 +57,8 @@ public class AudioManager : MonoBehaviour
                 break;
             case SoundType.Toc: audioSource.PlayOneShot(toc, 1f);
                 break;
+            case SoundType.Tic: audioSource.PlayOneShot(tic, 1f);
+                break;
         }
     }
 
@@ -62,5 +68,11 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop();
         else 
             audioSource.PlayOneShot(lessons[lessonIndex], 1f);
+    }
+
+    public void StopAudio()
+    {
+        if (audioSource.isPlaying)
+            audioSource.Stop();
     }
 }

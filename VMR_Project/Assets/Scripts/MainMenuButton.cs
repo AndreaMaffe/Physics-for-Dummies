@@ -14,6 +14,7 @@ public class MainMenuButton : InteractiveObject
         focused = true;
         animator.SetBool("Focused", true);
         gameManager.OnOverButton(index);
+        AudioManager.instance.PlaySound(SoundType.Tic);
     }
 
     public override void OnFocusExit()
@@ -21,6 +22,7 @@ public class MainMenuButton : InteractiveObject
         Debug.Log(gameObject.name + "stop focused!");
         focused = false;
         animator.SetBool("Focused", false);
+        gameManager.OnOverButton(9); //default sheet
     }
 
     public override void OnArrowDown()

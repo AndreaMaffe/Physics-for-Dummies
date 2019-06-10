@@ -12,7 +12,7 @@ public class ShockSphere : InteractiveObject
     private Vector3 originalPosition;
     public Vector vector;
 
-    private bool isMoving;
+    public bool isMoving { get; set; }
 
     void Start()
     {
@@ -30,29 +30,30 @@ public class ShockSphere : InteractiveObject
         Vector3 newRotation = Quaternion.LookRotation(rb.velocity).eulerAngles + Quaternion.Euler(90f, 0f, 0f).eulerAngles;
         vector.gameObject.transform.rotation = Quaternion.Euler(newRotation);
         vector.SetScale(rb.velocity.magnitude * 0.2f);
+
     }
 
     public override void OnArrowDown()
     {
-        if (!isMoving)
+        if (!isMoving && focused)
         {
             scale -= 0.1f;
 
             if (scale < 0.3f)
                 scale = 0.3f;
 
-            this.transform.localScale = new Vector3(scale, scale, scale);
+            sphere.transform.localScale = new Vector3(scale, scale, scale);
 
-            rb.mass -= 2f;
+            rb.mass -= 1f;
 
-            if (rb.mass < 6f)
-                rb.mass = 6f;
+            if (rb.mass < 3f)
+                rb.mass = 3f;
         }
     }
 
     public override void OnArrowUp()
     {
-        if (!isMoving)
+        if (!isMoving && focused)
         {
             scale += 0.1f;
 
@@ -63,8 +64,8 @@ public class ShockSphere : InteractiveObject
 
             rb.mass += 1f;
 
-            if (rb.mass > 34f)
-                rb.mass = 34f;
+            if (rb.mass > 17f)
+                rb.mass = 17f;
         }
 
     }
@@ -79,7 +80,6 @@ public class ShockSphere : InteractiveObject
 
     public void StartAddForce()
     {
-        isMoving = true;
         rb.AddForce(transform.forward * 130, ForceMode.Impulse);
     }
 
@@ -94,6 +94,9 @@ public class ShockSphere : InteractiveObject
 
     void OnDisable()
     {
+        this.transform.localScale = Vector3.one;
+        rb.mass = 10f;
         ResetPosition();
+        isMoving = false;
     }
 }

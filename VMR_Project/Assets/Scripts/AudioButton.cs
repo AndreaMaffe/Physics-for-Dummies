@@ -31,7 +31,12 @@ public class AudioButton : InteractiveObject
 
     public override void OnClick()
     {
-        if (focused)
+        //if (focused)
             AudioManager.instance.PlayLesson(lessonIndex);
+    }
+
+    private void OnDisable()
+    {
+        AudioManager.instance.StopAudio();
     }
 }
