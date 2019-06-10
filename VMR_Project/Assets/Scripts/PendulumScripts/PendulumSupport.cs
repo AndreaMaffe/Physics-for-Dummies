@@ -25,7 +25,7 @@ public class PendulumSupport : MonoBehaviour
     public bool isPendulumReset = true;
 
     // This value modifies the value of the torque applied to the rope when the pendulum movement is started.
-    private float appliedForceAmount = 4f;
+    private float appliedForceAmount = 2f;
 
     // Start is called before the first frame update
     void Start()
