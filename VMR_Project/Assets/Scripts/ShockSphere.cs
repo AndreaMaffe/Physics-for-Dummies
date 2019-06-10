@@ -8,6 +8,7 @@ public class ShockSphere : InteractiveObject
     private float scale;
     private GameObject sphere;
     public Transform otherSphere;
+    public GameObject interactiveObjectButton;
 
     private Vector3 originalPosition;
     public Vector vector;
@@ -20,7 +21,7 @@ public class ShockSphere : InteractiveObject
         originalPosition = transform.position;
         scale = 1f;
         Vector3 direction = otherSphere.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction);
+        //transform.rotation = Quaternion.LookRotation(direction);
         sphere = transform.Find("Sphere").gameObject;
         isMoving = false;
     }
@@ -31,6 +32,9 @@ public class ShockSphere : InteractiveObject
         vector.gameObject.transform.rotation = Quaternion.Euler(newRotation);
         vector.SetScale(rb.velocity.magnitude * 0.2f);
 
+        if (isMoving)
+            interactiveObjectButton.SetActive(false);
+        else interactiveObjectButton.SetActive(true);
     }
 
     public override void OnArrowDown()
@@ -80,7 +84,7 @@ public class ShockSphere : InteractiveObject
 
     public void StartAddForce()
     {
-        rb.AddForce(transform.forward * 130, ForceMode.Impulse);
+        rb.AddForce(Vector3.left * 130, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
