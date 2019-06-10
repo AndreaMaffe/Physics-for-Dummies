@@ -11,7 +11,7 @@ public class InteractiveHeight : InteractiveObject
     private float minLength = 0.4f;                                                    // This value corresponds to the minimum y scale of the rope.
 
     // Value added or removed at every user interaction.
-    private float deltaLength = 0.1f;
+    private float deltaLength = 0.05f;
 
     // Scale of the whole object, saved in a variable for performance reasons.
     private float pendulumSupportScale = 10;
