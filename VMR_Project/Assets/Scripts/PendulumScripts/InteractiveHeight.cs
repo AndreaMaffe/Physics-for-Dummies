@@ -46,6 +46,7 @@ public class InteractiveHeight : InteractiveObject
                 Vector3 newPosition = new Vector3(pendulumBody.transform.position.x, pendulumBody.transform.position.y - deltaLength * pendulumSupportScale,
                     pendulumBody.transform.position.z);
                 pendulumBody.transform.position = newPosition;
+                pendulumSupport.startingPendulumHeight = pendulumBody.transform.position.y;
             }
         }
     }
