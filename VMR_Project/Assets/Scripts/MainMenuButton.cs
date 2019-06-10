@@ -5,7 +5,6 @@ using UnityEngine;
 public class MainMenuButton : InteractiveObject
 {
     public Animator animator;
-    public int index;
     public GameManager gameManager;
 
     public override void OnFocusEnter()
@@ -13,7 +12,7 @@ public class MainMenuButton : InteractiveObject
         Debug.Log(gameObject.name + "focused!");
         focused = true;
         animator.SetBool("Focused", true);
-        gameManager.OnOverButton(index);
+        gameManager.OnOverButton(this.gameObject);
         AudioManager.instance.PlaySound(SoundType.Tic);
     }
 
@@ -22,7 +21,7 @@ public class MainMenuButton : InteractiveObject
         Debug.Log(gameObject.name + "stop focused!");
         focused = false;
         animator.SetBool("Focused", false);
-        gameManager.OnOverButton(9); //default sheet
+        gameManager.OnOverButton(null); //default sheet
     }
 
     public override void OnArrowDown()
@@ -37,8 +36,7 @@ public class MainMenuButton : InteractiveObject
     {
         if (focused)
         {
-            Debug.Log("Tasto " + index + "premuto!");
-            gameManager.GoToExperience(index);
+            gameManager.GoToExperience(this.gameObject);
         }
 
     }

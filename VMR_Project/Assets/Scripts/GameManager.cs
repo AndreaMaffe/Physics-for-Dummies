@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer mainMenuSignBoard;
     public GameObject[] experiences;
     public Sprite[] experiencesSprites;
+    public GameObject[] mainMenuButtons;
 
     private bool busy;
 
@@ -84,10 +86,11 @@ public class GameManager : MonoBehaviour
     }
 
     //MainMenu --> Experience
-    public void GoToExperience(int experienceIndex)
+    public void GoToExperience(GameObject experienceButton)
     {
         if (gameStatus == GameStatus.OnMainMenu)
         {
+            int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
             Debug.Log("Carico l'esperienza " + experienceIndex);
             AudioManager.instance.PlaySound(SoundType.HardPop);
             mainMenuObjects.SetActive(false);
@@ -117,9 +120,16 @@ public class GameManager : MonoBehaviour
         subtitle.Restore();
     }
 
-    public void OnOverButton(int buttonIndex)
+    public void OnOverButton(GameObject button)
     {
-        mainMenuSignBoard.sprite = experiencesSprites[buttonIndex];
+        if (button == null)
+            mainMenuSignBoard.sprite = experiencesSprites[9];
+        else
+        {
+            int buttonIndex = Array.IndexOf(mainMenuButtons, button);
+            mainMenuSignBoard.sprite = experiencesSprites[buttonIndex];
+        }
+
     }
 
 
