@@ -55,14 +55,6 @@ public class GameManager : MonoBehaviour
                     {
                         BackToTitleScreen();
                     }
-
-                    for (int i = 0; i < 10; ++i)
-                    {
-                        if (Input.GetKeyDown("" + i))
-                        {
-                            //GoToExperience(i);
-                        }
-                    }
                 }
                 break;
 
@@ -94,11 +86,16 @@ public class GameManager : MonoBehaviour
     //MainMenu --> Experience
     public void GoToExperience(int experienceIndex)
     {
-        AudioManager.instance.PlaySound(SoundType.HardPop);
-        mainMenuObjects.SetActive(false);
-        gameStatus = GameStatus.InExperience;
-        experiences[experienceIndex].SetActive(true);
-        currentExperience = experiences[experienceIndex];
+        if (gameStatus == GameStatus.OnMainMenu)
+        {
+            Debug.Log("Carico l'esperienza " + experienceIndex);
+            AudioManager.instance.PlaySound(SoundType.HardPop);
+            mainMenuObjects.SetActive(false);
+            gameStatus = GameStatus.InExperience;
+            experiences[experienceIndex].SetActive(true);
+            currentExperience = experiences[experienceIndex];
+        }
+
     }
 
     //MainMenu <-- Experience

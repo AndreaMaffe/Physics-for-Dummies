@@ -36,6 +36,10 @@ public class MainMenuButton : InteractiveObject
     public override void OnClick()
     {
         if (focused)
+        {
+            Debug.Log("Tasto " + index + "premuto!");
             gameManager.GoToExperience(index);
+        }
+
     }
 }

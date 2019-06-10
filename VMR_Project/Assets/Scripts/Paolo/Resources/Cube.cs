@@ -22,6 +22,8 @@ public class Cube : InteractiveObject
     // Start is called before the first frame update
     void Start()
     {
+        if (!this.gameObject.activeSelf)
+            this.gameObject.SetActive(true);
         rb = GetComponent<Rigidbody>();
         factorScale = (float)0.02;
         startPosition = this.transform.localPosition;
