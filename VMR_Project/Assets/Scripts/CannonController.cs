@@ -44,7 +44,7 @@ public class CannonController : InteractiveObject
         {
             angle = -cannonBody.transform.localRotation.eulerAngles.x;
         }
-        if (angle>0f) {
+        if (angle>=0.25f) {
             cannonBody.transform.RotateAround(cannonSphere.transform.position, Vector3.Cross(-transform.forward, transform.up), angularSpeed);
 
         }
