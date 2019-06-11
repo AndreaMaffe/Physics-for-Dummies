@@ -51,7 +51,9 @@ public class Incline : InteractiveObject
     public void OnDisable()
     {
         rotation = 55f;
+        weightRotation = 220f;
         transform.rotation = Quaternion.Euler(0, 0, rotation);
+        cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         interactiveObject.SetActive(true);
     }
 }
