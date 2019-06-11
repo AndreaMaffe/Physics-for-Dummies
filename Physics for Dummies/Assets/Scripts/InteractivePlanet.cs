@@ -14,6 +14,7 @@ public class InteractivePlanet : InteractiveObject
 
     public GameObject interactableButton;
     public GameObject blueVector;
+    public GameObject greenVector;
     public GameObject planet;
     public StartPlanetButton startButton;
     public Rigidbody otherRb;
@@ -29,7 +30,7 @@ public class InteractivePlanet : InteractiveObject
         explosion = Resources.Load<GameObject>("PoffAnimation");
         trailRenderer = planet.transform.Find("Trail").GetComponent<TrailRenderer>();
         scale = 1f;
-        blueVector.gameObject.SetActive(false);
+        blueVector.SetActive(false);
     }
 
 
@@ -70,12 +71,14 @@ public class InteractivePlanet : InteractiveObject
         rb.isKinematic = true;
         interactableButton.SetActive(true);
         blueVector.SetActive(false);
+        greenVector.SetActive(true);
     }
 
     public void StartMoving()
     {
         interactableButton.SetActive(false);
         blueVector.SetActive(true);
+        greenVector.SetActive(false);
         rb.isKinematic = false;
         rb.AddForce(Vector3.up * amount, ForceMode.Impulse);
     }
@@ -129,5 +132,6 @@ public class InteractivePlanet : InteractiveObject
         rb.isKinematic = true;
         interactableButton.SetActive(true);
         blueVector.SetActive(false);
+        greenVector.SetActive(true);
     }
 }

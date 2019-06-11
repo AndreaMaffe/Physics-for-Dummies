@@ -98,7 +98,7 @@ public class ShockSphere : InteractiveObject
 
     void OnDisable()
     {
-        this.transform.localScale = Vector3.one;
+        sphere.transform.localScale = Vector3.one;
         rb.mass = 10f;
         ResetPosition();
         isMoving = false;

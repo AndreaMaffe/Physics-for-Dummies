@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovableObject : InteractiveObject
 {
     public GameObject controller;
+    public GameObject interactiveButton;
 
     private float baseAngle;
     private Vector3 originalPosition;
@@ -23,6 +24,7 @@ public class MovableObject : InteractiveObject
     {        
         if (dragged)
         {
+            interactiveButton.SetActive(false);
             float distance = Vector3.Distance(originalPosition, controller.transform.position);
             float angle = baseAngle -GetControllerRotationX();
             if (Mathf.Abs(angle) > 0.000001f && Mathf.Abs(angle) < 80f)
@@ -31,6 +33,11 @@ public class MovableObject : InteractiveObject
                 this.transform.position = originalPosition + new Vector3(0, movement, 0);
             }
         }  
+
+        else
+        {
+            interactiveButton.SetActive(true);
+        }
     }
 
     public override void OnArrowDown()
@@ -98,5 +105,10 @@ public class MovableObject : InteractiveObject
     private void OnCollisionEnter(Collision collision)
     {
         AudioManager.instance.PlaySound(SoundType.Toc);
+    }
+
+    private void OnDisable()
+    {
+        dragged = false;
     }
 }
