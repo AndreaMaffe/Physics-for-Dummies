@@ -12,8 +12,8 @@ public class InteractiveBody : InteractiveObject
     private float maxMass = 1.3f;
 
     // Value added or removed at every user interaction.
-    private float deltaMass = 0.025f;
-    private float deltaWeightScale = 0.25f;
+    private float deltaMass = 0.05f;
+    private float deltaWeightScale = 0.5f;
 
     public PendulumSupport pendulumSupport;
     public Vector weight;
