@@ -8,6 +8,7 @@ public class PendulumSupport : MonoBehaviour
     private Quaternion initialRopeRotation;
     private Quaternion initialPendulumBodyRotation;
     private Vector3 initialPendulumBodyPosition;
+    private Vector3 initialRopeScale;
     public float pendulumBodyColliderRadius;
     private float initialWeightScale;
 
@@ -31,6 +32,7 @@ public class PendulumSupport : MonoBehaviour
     void Start()
     {
         initialRopeRotation = rope.transform.rotation;
+        initialRopeScale = rope.transform.localScale;
 
         initialPendulumBodyRotation = pendulumBody.transform.rotation;
         initialPendulumBodyPosition = pendulumBody.transform.position;
@@ -82,6 +84,7 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.transform.rotation = initialPendulumBodyRotation;
 
         rope.transform.rotation = initialRopeRotation;
+        rope.transform.localScale = initialRopeScale;
     }
 
     public void OnDisable()
