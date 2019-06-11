@@ -36,7 +36,7 @@ public class MainMenuButton5 : InteractiveObject
     {
         if (focused)
         {
-            gameManager.GoToExperience(5);
+            gameManager.GoToExperience(this.gameObject);
         }
 
     }

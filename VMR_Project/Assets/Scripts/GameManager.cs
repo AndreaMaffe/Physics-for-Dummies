@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public FadingText title, subtitle;
     public GameObject mainMenuObjects;
     public SpriteRenderer mainMenuSignBoard;
+    public GameObject[] experiences;
     public GameObject experience0;
     public GameObject experience1;
     public GameObject experience2;
@@ -91,12 +92,12 @@ public class GameManager : MonoBehaviour
     }
 
     //MainMenu --> Experience
-    public void GoToExperience(int experienceIndex)
+    public void GoToExperience(GameObject experienceButton)
     {
-        /*
+        
         if (gameStatus == GameStatus.OnMainMenu)
         {
-            //int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
+            int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
             Debug.Log("Carico l'esperienza " + experienceIndex);
             AudioManager.instance.PlaySound(SoundType.HardPop);
             mainMenuObjects.SetActive(false);
@@ -104,7 +105,7 @@ public class GameManager : MonoBehaviour
             experiences[experienceIndex].SetActive(true);
             currentExperience = experiences[experienceIndex];
         }
-        */
+        
     }
 
     //MainMenu <-- Experience

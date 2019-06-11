@@ -36,8 +36,13 @@ public class MainMenuButton : InteractiveObject
     {
         if (focused)
         {
-            //gameManager.GoToExperience(this.gameObject);
+            gameManager.GoToExperience(this.gameObject);
         }
 
+    }
+
+    private void OnDisable()
+    {
+        focused = false;
     }
 }

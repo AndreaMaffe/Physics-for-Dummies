@@ -40,4 +40,8 @@ public class MainMenuButton0 : InteractiveObject
         }
 
     }
+    public void OnDisable()
+    {
+        focused = false;
+    }
 }
