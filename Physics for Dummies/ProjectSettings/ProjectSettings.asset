@@ -155,6 +155,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.VMR.vmr
     Standalone: com.oculus.UnitySample
+    tvOS: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
@@ -392,6 +393,9 @@ PlayerSettings:
     m_Enabled: 1
     m_Devices:
     - Oculus
+  - m_BuildTarget: tvOS
+    m_Enabled: 1
+    m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
