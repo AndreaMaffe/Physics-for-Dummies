@@ -45,7 +45,7 @@ public class Cube : InteractiveObject
 
         if (rb.velocity.magnitude > 0)
         {
-            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)7));
+            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)11));
         } else
         {
             vel.SetScale(0);
@@ -53,7 +53,6 @@ public class Cube : InteractiveObject
             
         weight.SetScale((rb.mass * Physics.gravity.magnitude) * factorScale);
         tanWeight.SetScale((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
-        Debug.Log((rb.mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180))) * factorScale);
 
     }
 
@@ -62,8 +61,7 @@ public class Cube : InteractiveObject
         (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)));
     public void DynSetScale(float scale)
     {
-        Debug.Log("DynForce: " + scale * (factorScale * (float)5.5));
-        dyn.SetScale(scale * (factorScale * (float)5.5));
+        dyn.SetScale(scale * (factorScale * (float)5));
     }
 
     // Vector inclination correction
@@ -106,6 +104,7 @@ public class Cube : InteractiveObject
         tanWeight.SetScale(rb.mass * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)) * factorScale);
         weight.SetScale(rb.mass * factorScale);
         interactableObject.SetActive(true);
+        rb.isKinematic = true;
     }
     public void ReturnToInitialPosition()
     {

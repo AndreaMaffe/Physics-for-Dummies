@@ -14,8 +14,8 @@ public class Incline : InteractiveObject
     {
         if(rotation < 75f)
         {
-            weightRotation -= 5f;
-            rotation += 5f;
+            weightRotation -= 1f;
+            rotation += 1f;
             transform.rotation = Quaternion.Euler(0, 0, rotation);
             cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         }
@@ -24,8 +24,8 @@ public class Incline : InteractiveObject
     {
         if (rotation > 35f)
         {
-            weightRotation += 5f;
-            rotation -= 5f;
+            weightRotation += 1f;
+            rotation -= 1f;
             transform.rotation = Quaternion.Euler(0, 0, rotation);
             cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         }
