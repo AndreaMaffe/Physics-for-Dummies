@@ -8548,8 +8548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efbf26e8ce82834a95c5db0d8215b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  gameManager: {fileID: 0}
+  animator: {fileID: 5219667102188660223}
+  gameManager: {fileID: 1361640494}
 --- !u!1 &2083238974950502131
 GameObject:
   m_ObjectHideFlags: 0
