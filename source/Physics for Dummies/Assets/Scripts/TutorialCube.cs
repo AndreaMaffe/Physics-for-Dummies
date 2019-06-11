@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TutorialCube : MonoBehaviour
+{
+    void Update()
+    {
+        if (transform.position.y < 1.6f)
+        {
+            transform.position = new Vector3(transform.position.x, 1.6f, transform.position.z);
+        }
+    }
+
+    private void OnDisable()
+    {
+        transform.position = new Vector3(transform.position.x, 1.6f, transform.position.z);
+    }
+}
