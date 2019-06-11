@@ -8,7 +8,7 @@ public class Incline : InteractiveObject
     public GameObject interactiveObject;
 
     float rotation = 55f;
-    float weightRotation = 225f;
+    float weightRotation = 220f;
 
     void IncreaseRotation()
     {

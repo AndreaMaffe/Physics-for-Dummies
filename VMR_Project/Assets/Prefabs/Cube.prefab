@@ -59,7 +59,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8203398221386123285}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: -0.46174863, w: 0.8870109}
   m_LocalPosition: {x: -0.6, y: -2.1, z: 9.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -70,7 +70,7 @@ Transform:
   - {fileID: 4534691025002039852}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -55}
 --- !u!33 &8203398221386123280
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -161,7 +161,8 @@ MonoBehaviour:
   weight: {fileID: 7244544393458427501}
   vel: {fileID: 2835205870174450795}
   tanWeight: {fileID: 6564577790084599557}
-  ramp: {fileID: 4391396430178392434, guid: e0b5fc1513d7667478eec9bf66f4b0ad, type: 3}
+  incline: {fileID: 0}
+  interactableObject: {fileID: 0}
 --- !u!1001 &1047067215680985465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,12 +315,12 @@ PrefabInstance:
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9238796
+      value: 0.9396927
       objectReference: {fileID: 0}
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.38268325
+      value: -0.3420201
       objectReference: {fileID: 0}
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
@@ -339,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 225
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 7622717502653181291, guid: e19ba2070d8487f4ebb9420d104ea9b9,
         type: 3}
@@ -617,6 +618,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4534691025002039852}
     m_Modifications:
+    - target: {fileID: 2490678700585995655, guid: 613c1db22416dd24e9538e4e1444e8a2,
+        type: 3}
+      propertyPath: m_Name
+      value: ScalableObjectButton
+      objectReference: {fileID: 0}
     - target: {fileID: 7635888297455692509, guid: 613c1db22416dd24e9538e4e1444e8a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -686,11 +692,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2490678700585995655, guid: 613c1db22416dd24e9538e4e1444e8a2,
-        type: 3}
-      propertyPath: m_Name
-      value: ScalableObjectButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 613c1db22416dd24e9538e4e1444e8a2, type: 3}
