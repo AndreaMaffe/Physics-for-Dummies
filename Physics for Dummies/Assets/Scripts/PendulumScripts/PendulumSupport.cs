@@ -11,6 +11,8 @@ public class PendulumSupport : MonoBehaviour
     private Vector3 initialRopeScale;
     public float pendulumBodyColliderRadius;
     private float initialWeightScale;
+    private float initialPendulumBodyMass;
+    private Vector3 initialPendulumBodyScale;
 
     // Height at which the pendulum body starts swinging.
     public float startingPendulumHeight;
@@ -36,6 +38,8 @@ public class PendulumSupport : MonoBehaviour
 
         initialPendulumBodyRotation = pendulumBody.transform.rotation;
         initialPendulumBodyPosition = pendulumBody.transform.position;
+        initialPendulumBodyMass = pendulumBody.GetComponent<Rigidbody>().mass;
+        initialPendulumBodyScale = pendulumBody.transform.localScale;
 
         initialWeightScale = 2;
         weight.SetScale(initialWeightScale);
@@ -82,6 +86,8 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.transform.position = new Vector3(initialPendulumBodyPosition.x, initialPendulumBodyPosition.y, initialPendulumBodyPosition.z);
         startingPendulumHeight = initialPendulumBodyPosition.y;
         pendulumBody.transform.rotation = initialPendulumBodyRotation;
+        pendulumBody.GetComponent<Rigidbody>().mass = initialPendulumBodyMass;
+        pendulumBody.transform.localScale = initialPendulumBodyScale;
 
         rope.transform.rotation = initialRopeRotation;
         rope.transform.localScale = initialRopeScale;
