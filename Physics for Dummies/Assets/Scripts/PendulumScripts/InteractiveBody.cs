@@ -85,6 +85,7 @@ public class InteractiveBody : InteractiveObject
     public void OnDisable()
     {
         pendulumSupport.Reset();
+        focused = false;
     }
 
     public override void OnClick()

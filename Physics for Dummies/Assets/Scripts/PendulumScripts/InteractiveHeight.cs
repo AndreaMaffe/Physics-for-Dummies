@@ -79,6 +79,7 @@ public class InteractiveHeight : InteractiveObject
     public void OnDisable()
     {
         pendulumSupport.Reset();
+        focused = false;
     }
 
     public override void OnClick()
