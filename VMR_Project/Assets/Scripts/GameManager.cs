@@ -18,7 +18,12 @@ public class GameManager : MonoBehaviour
     public FadingText title, subtitle;
     public GameObject mainMenuObjects;
     public SpriteRenderer mainMenuSignBoard;
-    public GameObject[] experiences;
+    public GameObject experience0;
+    public GameObject experience1;
+    public GameObject experience2;
+    public GameObject experience3;
+
+
     public Sprite[] experiencesSprites;
     public GameObject[] mainMenuButtons;
 
@@ -86,11 +91,12 @@ public class GameManager : MonoBehaviour
     }
 
     //MainMenu --> Experience
-    public void GoToExperience(GameObject experienceButton)
+    public void GoToExperience(int experienceIndex)
     {
+        /*
         if (gameStatus == GameStatus.OnMainMenu)
         {
-            int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
+            //int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
             Debug.Log("Carico l'esperienza " + experienceIndex);
             AudioManager.instance.PlaySound(SoundType.HardPop);
             mainMenuObjects.SetActive(false);
@@ -98,7 +104,7 @@ public class GameManager : MonoBehaviour
             experiences[experienceIndex].SetActive(true);
             currentExperience = experiences[experienceIndex];
         }
-
+        */
     }
 
     //MainMenu <-- Experience
@@ -130,6 +136,50 @@ public class GameManager : MonoBehaviour
             mainMenuSignBoard.sprite = experiencesSprites[buttonIndex];
         }
 
+    }
+
+    public void GoToExperience0()
+    {
+        if (gameStatus == GameStatus.OnMainMenu)
+        {
+            //int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
+            Debug.Log("Carico l'esperienza " + 0);
+            AudioManager.instance.PlaySound(SoundType.HardPop);
+            mainMenuObjects.SetActive(false);
+            gameStatus = GameStatus.InExperience;
+            experience0.SetActive(true);
+            currentExperience = experience0;
+        }
+    }
+
+    public void GoToExperience1()
+    {
+        if (gameStatus == GameStatus.OnMainMenu)
+        {
+            //int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
+            Debug.Log("Carico l'esperienza " + 1);
+            AudioManager.instance.PlaySound(SoundType.HardPop);
+            mainMenuObjects.SetActive(false);
+            gameStatus = GameStatus.InExperience;
+            experience1.SetActive(true);
+            currentExperience = experience1;
+        }
+    }
+
+    public void GoToExperience2()
+    {
+        if (gameStatus == GameStatus.OnMainMenu)
+        {
+            //int experienceIndex = Array.IndexOf(mainMenuButtons, experienceButton);
+            Debug.Log("Carico l'esperienza " + 2);
+            AudioManager.instance.PlaySound(SoundType.HardPop);
+            mainMenuObjects.SetActive(false);
+            gameStatus = GameStatus.InExperience;
+            experience2.SetActive(true);
+            currentExperience = experience2;
+
+            Debug.Log("Caico la 2");
+        }
     }
 
 

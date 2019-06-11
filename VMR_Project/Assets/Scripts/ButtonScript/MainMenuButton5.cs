@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuButton : InteractiveObject
+public class MainMenuButton5 : InteractiveObject
 {
     public Animator animator;
     public GameManager gameManager;
@@ -36,7 +36,7 @@ public class MainMenuButton : InteractiveObject
     {
         if (focused)
         {
-            //gameManager.GoToExperience(this.gameObject);
+            gameManager.GoToExperience(5);
         }
 
     }
