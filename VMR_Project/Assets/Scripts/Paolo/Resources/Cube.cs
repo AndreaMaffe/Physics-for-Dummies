@@ -45,7 +45,7 @@ public class Cube : InteractiveObject
 
         if (rb.velocity.magnitude > 0)
         {
-            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)5.5));
+            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)6));
         } else
         {
             vel.SetScale(0);
@@ -58,7 +58,7 @@ public class Cube : InteractiveObject
 
     // Friction force computation
     public float DynFrictionForceComputation(double dynFrictionCohefficient, float mass, Vector3 velocity) =>
-        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4));
+        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)));
     public void DynSetScale(float scale)
     {
         dyn.SetScale(scale * (factorScale * (float)3.5));
