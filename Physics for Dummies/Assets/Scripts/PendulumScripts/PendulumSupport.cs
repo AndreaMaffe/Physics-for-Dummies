@@ -71,8 +71,21 @@ public class PendulumSupport : MonoBehaviour
         pendulumBody.GetComponent<Rigidbody>().AddForce(Vector3.right * appliedForceAmount, ForceMode.VelocityChange);
     }
 
+    private void ChangingExperienceReset()
+    {
+        pendulumBody.GetComponent<Rigidbody>().isKinematic = true;
+        rope.GetComponent<Rigidbody>().isKinematic = true;
+        isPendulumReset = true;
+
+        pendulumBody.transform.position = new Vector3(initialPendulumBodyPosition.x, initialPendulumBodyPosition.y, initialPendulumBodyPosition.z);
+        startingPendulumHeight = initialPendulumBodyPosition.y;
+        pendulumBody.transform.rotation = initialPendulumBodyRotation;
+
+        rope.transform.rotation = initialRopeRotation;
+    }
+
     public void OnDisable()
     {
-        Reset();
+        ChangingExperienceReset();
     }
 }

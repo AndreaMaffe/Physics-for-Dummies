@@ -48,8 +48,6 @@ public class InteractiveBody : InteractiveObject
 
                 // Decrease weight scale.
                 weight.SetScale(weightScale);
-
-                //todo adjust collider
             }
         }
     }
@@ -76,8 +74,6 @@ public class InteractiveBody : InteractiveObject
 
                 // Increase weight scale.
                 weight.SetScale(weightScale);
-
-                //todo adjust collider
             }
         }
     }
