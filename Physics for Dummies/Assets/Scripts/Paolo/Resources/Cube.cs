@@ -45,7 +45,7 @@ public class Cube : InteractiveObject
 
         if (rb.velocity.magnitude > 0)
         {
-            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)11));
+            vel.SetScale(rb.velocity.magnitude * (factorScale * (float)13));
         } else
         {
             vel.SetScale(0);
@@ -61,7 +61,7 @@ public class Cube : InteractiveObject
         (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)));
     public void DynSetScale(float scale)
     {
-        dyn.SetScale(scale * (factorScale * (float)5));
+        dyn.SetScale(scale * (factorScale * (float)4));
     }
 
     // Vector inclination correction
