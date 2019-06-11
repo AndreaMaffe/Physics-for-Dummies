@@ -103,8 +103,8 @@ public class Cube : InteractiveObject
     {
         rb.mass = startMass;
         transform.localScale = startScale;
-        transform.position = startPosition;
-        transform.rotation = startRotation;
+        transform.localPosition = startPosition;
+        transform.localRotation = startRotation;
         vel.SetScale(0);
         dyn.SetScale(0);
         tanWeight.SetScale(rb.mass * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)) * factorScale);
