@@ -41,13 +41,7 @@ public class Cube : InteractiveObject
     void FixedUpdate()
     {
         dynFrictionForce = this.DynFrictionForceComputation(incline.GetComponent<BoxCollider>().material.dynamicFriction, rb.mass, rb.velocity);
-        if (dynFrictionForce > 0)
-        {
-            this.DynSetScale(dynFrictionForce);
-        } else
-        {
-            dyn.SetScale(0);
-        }
+        this.DynSetScale(dynFrictionForce);
 
         if (rb.velocity.magnitude > 0)
         {
