@@ -46,5 +46,6 @@ public class TutorialSphere : InteractiveObject
     {
         scale = 1f;
         this.transform.localScale = Vector3.one;
+        focused = false;
     }
 }

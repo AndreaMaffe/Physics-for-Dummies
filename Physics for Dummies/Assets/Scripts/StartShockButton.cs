@@ -59,5 +59,6 @@ public class StartShockButton : InteractiveObject
     {
         isOn = false;
         meshRenderer.material = offMaterial;
+        focused = false;
     }
 }

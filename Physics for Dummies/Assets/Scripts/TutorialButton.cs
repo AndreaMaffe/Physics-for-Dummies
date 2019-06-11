@@ -22,4 +22,9 @@ public class TutorialButton : InteractiveObject
             AudioManager.instance.PlaySound(SoundType.Ding);
         }
     }
+
+    private void OnDisable()
+    {
+        focused = false;
+    }
 }

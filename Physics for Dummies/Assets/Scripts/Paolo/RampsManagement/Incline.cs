@@ -22,7 +22,7 @@ public class Incline : InteractiveObject
     }
     void DecreaseRotation()
     {
-        if (rotation > 35f)
+        if (rotation > 37f)
         {
             weightRotation += 1f;
             rotation -= 1f;
@@ -55,5 +55,6 @@ public class Incline : InteractiveObject
         transform.rotation = Quaternion.Euler(0, 0, rotation);
         cube.WeightAngleCorrection(cube.weight, Quaternion.Euler(0, 0, weightRotation));
         interactiveObject.SetActive(true);
+        focused = false;
     }
 }

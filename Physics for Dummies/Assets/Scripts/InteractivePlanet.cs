@@ -133,5 +133,6 @@ public class InteractivePlanet : InteractiveObject
         interactableButton.SetActive(true);
         blueVector.SetActive(false);
         greenVector.SetActive(true);
+        focused = false;
     }
 }
