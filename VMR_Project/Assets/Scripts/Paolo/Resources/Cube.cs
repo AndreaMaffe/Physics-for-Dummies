@@ -58,7 +58,7 @@ public class Cube : InteractiveObject
 
     // Friction force computation
     public float DynFrictionForceComputation(double dynFrictionCohefficient, float mass, Vector3 velocity) =>
-        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4) * velocity / velocity.magnitude).magnitude;
+        (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(Mathf.PI / 4));
     public void DynSetScale(float scale)
     {
         dyn.SetScale(scale * (factorScale * (float)3.5));
