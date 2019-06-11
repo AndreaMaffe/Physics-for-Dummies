@@ -110,5 +110,6 @@ public class MovableObject : InteractiveObject
     private void OnDisable()
     {
         dragged = false;
+        focused = false;
     }
 }

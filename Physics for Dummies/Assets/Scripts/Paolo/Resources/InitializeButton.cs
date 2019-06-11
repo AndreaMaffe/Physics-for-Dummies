@@ -58,6 +58,7 @@ public class InitializeButton : InteractiveObject
     {
         isOn = false;
         meshRenderer.material = offMaterial;
+        focused = false;
     }
     public void SetOff()
     {

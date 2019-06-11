@@ -65,5 +65,6 @@ public class StartThreePlanetsButton : InteractiveObject
     {
         isOn = false;
         meshRenderer.material = offMaterial;
+        focused = false;
     }
 }

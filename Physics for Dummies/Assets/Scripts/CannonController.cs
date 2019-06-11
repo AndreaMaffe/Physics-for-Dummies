@@ -81,5 +81,6 @@ public class CannonController : InteractiveObject
     {
         cannonBody.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         angle = 0f;
+        focused = false;
     }
 }

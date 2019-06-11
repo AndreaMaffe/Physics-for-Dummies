@@ -60,6 +60,7 @@ public class StartPlanetButton : InteractiveObject
     {
         isOn = false;
         meshRenderer.material = offMaterial;
+        focused = false;
     }
 
 

@@ -61,7 +61,7 @@ public class Cube : InteractiveObject
         (((float)dynFrictionCohefficient) * mass * Physics.gravity.magnitude * Mathf.Sin(incline.GetRotation() * (Mathf.PI / 180)));
     public void DynSetScale(float scale)
     {
-        dyn.SetScale(scale * (factorScale * (float)4));
+        dyn.SetScale(scale * (factorScale * (float)5));
     }
 
     // Vector inclination correction
@@ -105,6 +105,7 @@ public class Cube : InteractiveObject
         weight.SetScale(rb.mass * factorScale);
         interactableObject.SetActive(true);
         rb.isKinematic = true;
+        focused = false;
     }
     public void ReturnToInitialPosition()
     {

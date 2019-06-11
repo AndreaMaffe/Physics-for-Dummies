@@ -33,8 +33,15 @@ public class ShockSphere : InteractiveObject
         vector.SetScale(rb.velocity.magnitude * 0.2f);
 
         if (isMoving)
+        {
             interactiveObjectButton.SetActive(false);
-        else interactiveObjectButton.SetActive(true);
+            vector.gameObject.SetActive(true);
+        }
+        else
+        {
+            interactiveObjectButton.SetActive(true);
+            vector.gameObject.SetActive(false);
+        }
     }
 
     public override void OnArrowDown()

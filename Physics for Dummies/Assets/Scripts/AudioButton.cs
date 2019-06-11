@@ -38,5 +38,6 @@ public class AudioButton : InteractiveObject
     private void OnDisable()
     {
         AudioManager.instance.StopAudio();
+        focused = false;
     }
 }

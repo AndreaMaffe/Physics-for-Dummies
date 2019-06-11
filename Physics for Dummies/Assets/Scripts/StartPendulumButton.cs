@@ -70,5 +70,6 @@ public class StartPendulumButton : InteractiveObject
     {
         isOn = false;
         meshRenderer.material = offMaterial;
+        focused = false;
     }
 }
