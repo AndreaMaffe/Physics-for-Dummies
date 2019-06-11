@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuButton4 : InteractiveObject
+public class MainMenuButton : InteractiveObject
 {
     public Animator animator;
     public GameManager gameManager;
+    public int index;
 
     public override void OnFocusEnter()
     {
         Debug.Log(gameObject.name + "focused!");
         focused = true;
         animator.SetBool("Focused", true);
-        gameManager.OnOverButton(this.gameObject);
+        gameManager.OnOverButton(index);
         AudioManager.instance.PlaySound(SoundType.Tic);
     }
 
@@ -21,7 +22,7 @@ public class MainMenuButton4 : InteractiveObject
         Debug.Log(gameObject.name + "stop focused!");
         focused = false;
         animator.SetBool("Focused", false);
-        gameManager.OnOverButton(null); //default sheet
+        gameManager.OnOverButton(9); //default sheet
     }
 
     public override void OnArrowDown()
@@ -36,8 +37,13 @@ public class MainMenuButton4 : InteractiveObject
     {
         if (focused)
         {
-            gameManager.GoToExperience(this.gameObject);
+            gameManager.GoToExperience(index);
         }
 
+    }
+
+    private void OnDisable()
+    {
+        focused = false;
     }
 }
